@@ -240,25 +240,28 @@
     </div>
 
     <div class="grid-container centered-content">
-        <div class="grid-item" onclick="9.html">
+        <div class="grid-item">
             <img src="https://th.bing.com/th/id/OIG3.AVhhvOz9kTJ5ELXM1xDW?w=1024&h=1024&rs=1&pid=ImgDetMain" alt="RUTVIK Consultancy">
-            <button class="grid-button" >consultant<br>RUTVIK</button>
+            <a href="9.html" target="_blank" class="grid-button">Consult<br>RUTVIK</a>
         </div>
-        <div class="grid-item" onclick="window.location.href='YOUR_POOJA_LINK_HERE';">
+		
+        <div class="grid-item">
             <img src="https://th.bing.com/th/id/OIG2.6pFkSC355BKDnG9DNPnR?pid=ImgGn" alt="Poojas">
-            <button class="grid-button">ceremonies<br></button>
+            <a href="10.html" target="_blank" class="grid-button">ceremonies</a>
         </div>
+		
         <div class="grid-item" onclick="window.location.href='YOUR_HOMAM_LINK_HERE';">
             <img src="https://th.bing.com/th/id/OIG3.zFUWJPBRp1d_uYbVTySR?pid=ImgGn" alt="Homams">
-            <button class="grid-button">Homams<br></button>
+            <a href="8.html" target="_blank" class="grid-button">Homams</a>
         </div>
+		
         <div class="grid-item" onclick="showBrahminBhojCircles()">
             <img src="https://th.bing.com/th/id/OIG4.R41Ldm8Uqb18heWYCRi.?w=1024&h=1024&rs=1&pid=ImgDetMain" alt="Brahmin Bhoj">
             <button class="grid-button">Brahmin Bhoj<br></button>
         </div>
 		 <div class="grid-item" onclick="window.location.href='YOUR_HOMAM_LINK_HERE';">
             <img src="https://th.bing.com/th/id/OIG3.zFUWJPBRp1d_uYbVTySR?pid=ImgGn" alt="Shanti Homalu">
-            <button class="grid-button">Shanti<br> Homalu<br></button>
+            <button class="grid-button">ShantiHomalu<br></button>
         </div>
 		<div class="grid-item" onclick="window.location.href='YOUR_HOMAM_LINK_HERE';">
             <img src="https://th.bing.com/th/id/OIG3.zFUWJPBRp1d_uYbVTySR?pid=ImgGn" alt="Poojalu">
@@ -270,50 +273,62 @@
         </div>
 		<div class="grid-item" onclick="window.location.href='YOUR_HOMAM_LINK_HERE';">
             <img src="https://th.bing.com/th/id/OIG3.zFUWJPBRp1d_uYbVTySR?pid=ImgGn" alt="Ancestor Rituals">
-            <button class="grid-button">Ancestor<br>Rituals<br></button>
+            <button class="grid-button">Ancestor Rituals<br></button>
         </div>
 		<div class="grid-item" onclick="window.location.href='YOUR_HOMAM_LINK_HERE';">
             <img src="https://th.bing.com/th/id/OIG3.zFUWJPBRp1d_uYbVTySR?pid=ImgGn" alt="Shanti Homalu">
-            <button class="grid-button">Vratam <br>&<br> Japalu<br></button>
+            <button class="grid-button">Vratam & Japalu<br></button>
         </div>
     </div>
 
-    <div id="formPage" class="hidden">
+
+
+  
+    <!--<div id="formPage" class="hidden">
         <div class="form-container">
             <h2>Poojari Consultancy Form</h2>
-            <form id="consultancyForm" onsubmit="submitForm(event)">
-                <label for="husbandName">Husband's Name:</label>
-                <input type="text" id="husbandName" name="husbandName" required>
+			
+              <form action="https://docs.google.com/forms/d/e/1FAIpQLSeH22vSrcUgRSNPGHSSWFPOtl00xxcHMb2FOZp_qm8Q8xSUeQ/viewform" method="GET" target="hidden_iframe">
+    <label for="HusbandName">Husband's Name:</label>
+    <input type="text" id="HusbandName" name="entry.2114431678" required />
 
-                <label for="wifeName">Wife's Name:</label>
-                <input type="text" id="wifeName" name="wifeName" required>
-				
-				<label for="OtherName">Other's Name:</label>
-                <input type="text" id="OtherName" name="OtherName" required>
+    <!--<label for="WifeName">Wife's Name:</label>
+    <input type="text" id="WifeName" name="entry.776996528" required />
 
-                <label for="husbandNakshatram">Husband's Nakshatram:</label>
-                <input type="text" id="husbandNakshatram" name="husbandNakshatram" required>
+    <label for="OtherName">Other's Name:</label>
+    <input type="text" id="OtherName" name="entry.872183724" required />
 
-                <label for="wifeNakshatram">Wife's Nakshatram:</label>
-                <input type="text" id="wifeNakshatram" name="wifeNakshatram" required>
-				
-				<label for="OtherNakshatram">Other's Nakshatram:</label>
-                <input type="text" id="OtherNakshatram" name="OtherNakshatram" required>
+    <label for="husbandNakshatram">Husband's Nakshatram:</label>
+    <input type="text" id="husbandNakshatram" name="entry.961233856" required />
 
-                <label for="husbandDOB">Husband's Date of Birth:</label>
-                <input type="date" id="husbandDOB" name="husbandDOB" required>
+    <label for="wifeNakshatram">Wife's Nakshatram:</label>
+    <input type="text" id="wifeNakshatram" name="entry.1966489154" required />
 
-                <label for="wifeDOB">Wife's Date of Birth:</label>
-                <input type="date" id="wifeDOB" name="wifeDOB" required>
-				
-				<label for="OtherDOB">Other's Date of Birth:</label>
-                <input type="date" id="OtherDOB" name="OtherDOB" required>
+    <label for="OtherNakshatram">Other's Nakshatram:</label>
+    <input type="text" id="OtherNakshatram" name="entry.155646743" required />
 
-                <button type="submit">Submit</button>
-                <button type="button" onclick="goBack()">Go Back</button>
-            </form>
-        </div>
-    </div>
+    <label for="husbandDOB">Husband's Date of Birth:</label>
+    <input type="date" id="husbandDOB" name="entry.682501908" required />
+
+   <!-- <label for="husbandtimeDOB">Husband's time of Birth:</label>
+    <input type="time" id="husbandtimeDOB" name="entry.1714101448" required />
+
+    <label for="wifeDOB">wife's Date of Birth:</label>
+    <input type="date" id="wifeDOB" name="entry.1854694522" required />
+
+    <label for="wifetimeDOB">wife's time of Birth:</label>
+    <input type="time" id="wifetimeDOB" name="entry.824110378" required />
+
+    <label for="OtherDOB">Other's Date of Birth:</label>
+    <input type="date" id="OtherDOB" name="entry.1762812076" required />
+
+    <label for="OthertimeDOB">Other's time of Birth:</label>
+    <input type="time" id="OthertimeDOB" name="entry.1262569707" required />
+
+    <button type="submit">Submit</button>
+    <button type="button" onclick="goBack()">Go Back</button>
+</form>
+<iframe name="hidden_iframe" style="display:none;"></iframe>-->
 
     <div id="brahminBhojPage" class="hidden centered-content">
     <div class="grid-container">
@@ -443,17 +458,17 @@
     function submitForm(event) {
         event.preventDefault();
         const formData = new FormData(document.getElementById('consultancyForm'));
-        const googleFormURL = "YOUR_GOOGLE_FORM_SUBMISSION_URL"; 
+        const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeH22vSrcUgRSNPGHSSWFPOtl00xxcHMb2FOZp_qm8Q8xSUeQ/viewform?usp=sf_link"; 
         const data = {
-            "entry.1111111111": formData.get("husbandName"),
-            "entry.2222222222": formData.get("wifeName"),
-			"entry.2222222222": formData.get("OtherName"),
-            "entry.3333333333": formData.get("husbandNakshatram"),
-            "entry.4444444444": formData.get("wifeNakshatram"),
-			"entry.2222222222": formData.get("OtherNakshatram"),
-            "entry.5555555555": formData.get("husbandDOB"),
-            "entry.6666666666": formData.get("wifeDOB"),
-			"entry.2222222222": formData.get("OtherDOB"),
+            "entry.850945828": formData.get("Husband Name"),
+            "entry.1296700235": formData.get("wifeName"),
+			"entry.2085991295": formData.get("OtherName"),
+            "entry.141097842": formData.get("husbandNakshatram"),
+            "entry.608599130": formData.get("wifeNakshatram"),
+			"entry.1120162163": formData.get("OtherNakshatram"),
+            "entry.1734469024": formData.get("husbandDOB"),
+            "entry.85633826": formData.get("wifeDOB"),
+			"entry.1093203031": formData.get("OtherDOB"),
         };
 
         const queryString = new URLSearchParams(data).toString();
@@ -473,6 +488,8 @@
         .catch(() => alert('Form submission failed.'));
     }
 </script>
+
+
 
 </body>
 </html>
