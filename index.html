@@ -423,15 +423,15 @@
     <div id="brahminBhojPage" class="hidden centered-content">
     <div class="grid-container">
         <div class="grid-item" onclick="showContent('Subpage 1')">
-            <img src="https://th.bing.com/th/id/OIG2.G22OfdFFVKN22uFCVHro?pid=ImgGn" alt="Brahmachari Bhojanam" class="subpage-image">
+            <img src="https://th.bing.com/th/id/OIG2.G22OfdFFVKN22uFCVHro?pid=ImgGn" alt="Brahmachari Bhojanam">
             <button class="grid-button">Brahmachari<br>Bhojanam</button>
         </div>
         <div class="grid-item" onclick="showContent('Subpage 2')">
-            <img src="https://th.bing.com/th/id/OIG3.zegyFRiBFFud209Px..k?pid=ImgGn" alt="Brahmin Bhojanam" class="subpage-image">
+            <img src="https://th.bing.com/th/id/OIG3.zegyFRiBFFud209Px..k?pid=ImgGn" alt="Brahmin Bhojanam">
             <button class="grid-button">Brahmin<br> Bhojanam</button>
         </div>
         <div class="grid-item" onclick="showContent('Subpage 3')">
-            <img src="https://th.bing.com/th/id/OIG3.bf1qCHpA0lRd5j7_sTNv?pid=ImgGn" alt="Annadanam" class="subpage-image">
+            <img src="https://th.bing.com/th/id/OIG3.bf1qCHpA0lRd5j7_sTNv?pid=ImgGn" alt="Annadanam">
             <button class="grid-button">Annadanam</button>
         </div>
     </div>
@@ -466,7 +466,8 @@
         const content = {
             'Subpage 1': {
                 title: 'Brahmachari Bhojanam',
-                img: 'https://th.bing.com/th/id/OIG2.G22OfdFFVKN22uFCVHro?pid=ImgGn', // Replace with your image URL
+                <img src="https://th.bing.com/th/id/OIG2.G22OfdFFVKN22uFCVHro?pid=ImgGn" class="subpage-image" alt="Subpage Image">
+
                
 			   desc: `
                     <strong>Brahmachari Bhojanam Description:</strong>
@@ -488,7 +489,7 @@
             },
             'Subpage 2': {
                 title: 'Brahmin Bhojanam',
-                img: 'https://th.bing.com/th/id/OIG3.zegyFRiBFFud209Px..k?pid=ImgGn', // Replace with your image URL
+             <p  img: 'https://th.bing.com/th/id/OIG3.zegyFRiBFFud209Px..k?pid=ImgGn', </p>     // Replace with your image URL
                 desc: `
                     <strong>Brahmin Bhojanam Description:</strong>
                     <p>Brahmin Bhojanam is a revered ritual that involves offering a meal to Brahmins (Hindu priests or scholars) as an expression of respect and gratitude. This practice is typically performed during significant religious ceremonies, festivals, or personal milestones, symbolizing the importance of sharing and hospitality in Hindu culture.</p>
