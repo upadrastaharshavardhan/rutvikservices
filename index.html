@@ -45,10 +45,9 @@
     .grid-item {
         background-color: #eec7fc;
         border-radius: 50%;
-        width: 250px;
-        height: 250px;
+        width: 180px;
+        height: 180px;
         display: flex;
-        flex-direction: column; /* Ensures the button is centered below the image */
         align-items: center;
         justify-content: center;
         cursor: pointer;
@@ -57,7 +56,7 @@
     }
 
     .grid-item img {
-        width: 90%; /* Adjusted to better fit the circle */
+        width: 80%;
         height: auto;
         border-radius: 50%;
         transition: transform 0.3s;
@@ -68,8 +67,8 @@
     }
 
     .grid-button {
-        margin-top: 12px;
-        padding: 10px 20px;
+        margin-top: 8px;
+        padding: 5px 12px;
         background-color: #3d0066;
         color: white;
         border: none;
@@ -114,33 +113,31 @@
     }
 
     @media (max-width: 768px) {
-        .grid-container {
-            flex-direction: column; /* Aligns circles vertically */
-            gap: 30px;
-        }
-        
         .grid-item {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
         }
     }
 
     @media (max-width: 480px) {
         .grid-container {
-            flex-direction: column; /* Ensures circles are stacked vertically */
+            flex-direction: column;
+            align-items: center;
             gap: 20px;
         }
-        
+
         .grid-item {
-            width: 200px; /* Larger size in mobile view */
-            height: 200px;
+            width: 140px;
+            height: 140px;
+            margin-bottom: 20px;
         }
-        
+
         .header {
             padding: 20px;
         }
     }
 </style>
+
 
 	
   <!--<style>
