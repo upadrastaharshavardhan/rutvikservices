@@ -5,133 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rutvik Services</title>
 
+
 <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #c670ff;
-            overflow-x: hidden;
-        }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #c670ff;
+        overflow-x: hidden;
+    }
 
-        .background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
+    .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
 
-        .header {
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            z-index: 1;
-            position: relative;
-        }
+    .header {
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+        z-index: 1;
+        position: relative;
+    }
 
+    .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        padding: 60px 20px;
+        min-height: 80vh;
+    }
+
+    .grid-item {
+        background-color: #eec7fc;
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+        display: flex;
+        flex-direction: column; /* Ensures the button is centered below the image */
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .grid-item img {
+        width: 90%; /* Adjusted to better fit the circle */
+        height: auto;
+        border-radius: 50%;
+        transition: transform 0.3s;
+    }
+
+    .grid-item:hover img {
+        transform: scale(1.1);
+    }
+
+    .grid-button {
+        margin-top: 12px;
+        padding: 10px 20px;
+        background-color: #3d0066;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .grid-button:hover {
+        background-color: #290044;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .form-container, .content-container {
+        background-color: #f8e8ff;
+        padding: 20px;
+        border-radius: 15px;
+        max-width: 600px;
+        width: 90%;
+        margin: 20px auto;
+        z-index: 2;
+        position: relative;
+    }
+
+    button, .grid-button {
+        padding: 10px 20px;
+        background-color: #3d0066;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    button:hover, .grid-button:hover {
+        background-color: #290044;
+    }
+
+    @media (max-width: 768px) {
         .grid-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            padding: 60px 20px;
-            min-height: 80vh;
+            flex-direction: column; /* Aligns circles vertically */
+            gap: 30px;
         }
-
+        
         .grid-item {
-            background-color: #eec7fc;
-            border-radius: 50%;
             width: 180px;
             height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
+    }
 
-        .grid-item img {
-            width: 80%;
-            height: auto;
-            border-radius: 50%;
-            transition: transform 0.3s;
+    @media (max-width: 480px) {
+        .grid-container {
+            flex-direction: column; /* Ensures circles are stacked vertically */
+            gap: 20px;
         }
-
-        .grid-item:hover img {
-            transform: scale(1.1);
+        
+        .grid-item {
+            width: 200px; /* Larger size in mobile view */
+            height: 200px;
         }
-
-        .grid-button {
-            margin-top: 8px;
-            padding: 5px 12px;
-            background-color: #3d0066;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .grid-button:hover {
-            background-color: #290044;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .form-container, .content-container {
-            background-color: #f8e8ff;
+        
+        .header {
             padding: 20px;
-            border-radius: 15px;
-            max-width: 600px;
-            width: 90%;
-            margin: 20px auto;
-            z-index: 2;
-            position: relative;
         }
+    }
+</style>
 
-        button, .grid-button {
-            padding: 10px 20px;
-            background-color: #3d0066;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        button:hover, .grid-button:hover {
-            background-color: #290044;
-        }
-
-        @media (max-width: 768px) {
-            .grid-item {
-                width: 140px;
-                height: 140px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .grid-item {
-                width: 100px;
-                height: 100px;
-            }
-            .grid-container {
-                gap: 10px;
-            }
-            .header {
-                padding: 20px;
-            }
-        }
-    </style>
-<!-- /*  <style>
+	
+  <!--<style>
     body {
         margin: 0;
         padding: 0;
@@ -292,7 +304,7 @@
             padding: 20px;
         }
     }
-</style> */-->
+</style> -->
 
 </head>
 <body>
