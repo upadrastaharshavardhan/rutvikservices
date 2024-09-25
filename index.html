@@ -599,6 +599,13 @@
         })
         .catch(() => alert('Form submission failed.'));
     }
+
+   const selectedContent = content[subpage];
+    if (selectedContent) {
+        document.getElementById('content-title').innerHTML = selectedContent.title;
+        document.getElementById('content-image').innerHTML = selectedContent.img;  // This should display the image
+        document.getElementById('content-description').innerHTML = selectedContent.desc;
+    }
 </script>
 
 
