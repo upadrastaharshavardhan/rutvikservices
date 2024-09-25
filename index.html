@@ -544,11 +544,11 @@ function showContent(subpage) {
 
     // Set the selected content
     if (content[subpage]) {
-        document.getElementById('subContentTitle').innerHTML = `<h2 style="text-align: center;">${content[subpage].title}</h2>`;
-        document.getElementById('subContentImage').innerHTML = `<img src="${content[subpage].img}" class="subpage-image" alt="Subpage Image">`; // Set the innerHTML to include the image
-        document.getElementById('subContentDescription').innerHTML = content[subpage].desc; // Use innerHTML for rendering HTML
-        document.getElementById('brahminBhojPage').classList.add('hidden');
-        document.getElementById('subContent').classList.remove('hidden');
+         document.getElementById('subContentTitle').innerHTML = content[subpage].title;
+            document.getElementById('subContentImage').src = content[subpage].img; // Set the image source
+            document.getElementById('subContentDescription').innerHTML = content[subpage].desc; // Use innerHTML for rendering HTML
+            document.getElementById('brahminBhojPage').classList.add('hidden');
+            document.getElementById('subContent').classList.remove('hidden');
     }
 }
 
