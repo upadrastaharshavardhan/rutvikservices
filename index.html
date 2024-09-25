@@ -482,89 +482,89 @@
         document.getElementById('brahminBhojPage').classList.remove('hidden');
     }
 //brahminBhojPage
-    function showContent(subpage) {
-        const content = {
-            'Subpage 1': {
-                title: 'Brahmachari Bhojanam',
-                img: '<img src="https://th.bing.com/th/id/OIG2.G22OfdFFVKN22uFCVHro?pid=ImgGn" class="subpage-image" alt="Subpage Image">',
-
-               
-			   desc: `
-                    <strong>Brahmachari Bhojanam Description:</strong>
-                    <p>Brahmachari Bhojanam is a traditional ritual that involves offering food to Brahmacharis (celibate students or spiritual seekers) as a form of gratitude and reverence. This ceremony is often performed to seek blessings for prosperity, peace, and spiritual growth. The meal typically consists of a variety of vegetarian dishes, symbolizing abundance and purity.</p>
-                    <p>During the ceremony, the Brahmacharis are invited to partake in a meal, which is usually prepared with love and devotion. The act of serving food to Brahmacharis is seen as an act of dharma (righteousness) and is believed to bring auspiciousness to the host's home.</p>
-                    
-                    <strong>Benefits of Brahmachari Bhojanam:</strong>
-                    <ul>
-                        <li><strong>Spiritual Growth:</strong> Serving Brahmacharis is considered a way to gain spiritual merit. It helps cultivate humility and selflessness.</li>
-                        <li><strong>Blessings:</strong> It is believed that Brahmacharis possess a higher spiritual energy. Offering them food invokes their blessings for success, prosperity, and peace in life.</li>
-                        <li><strong>Abundance:</strong> The act of sharing food symbolizes abundance and promotes a mindset of generosity, attracting prosperity to the household.</li>
-                        <li><strong>Cleansing Ritual:</strong> Participating in Brahmachari Bhojanam purifies the environment and the mind, leading to a serene and positive atmosphere.</li>
-                        <li><strong>Community Bonding:</strong> This ritual fosters a sense of community and connection among participants, strengthening social ties and relationships.</li>
-                        <li><strong>Promotion of Values:</strong> It teaches values of service, respect for ascetics, and the importance of maintaining a healthy diet.</li>
-                        <li><strong>Cultural Significance:</strong> Engaging in such rituals helps preserve cultural heritage and traditions, connecting generations through shared practices.</li>
-                    </ul>
-                    <p>By partaking in Brahmachari Bhojanam, individuals not only enhance their spiritual journey but also contribute to the well-being of their community and family.</p>
-                `
-            },
-            'Subpage 2': {
-                title: 'Brahmin Bhojanam',
-	    img: '<img src="https://th.bing.com/th/id/OIG3.zegyFRiBFFud209Px..k?pid=ImgGn" class="subpage-image" alt="Subpage Image">',
-                desc: `
-                    <strong>Brahmin Bhojanam Description:</strong>
-                    <p>Brahmin Bhojanam is a revered ritual that involves offering a meal to Brahmins (Hindu priests or scholars) as an expression of respect and gratitude. This practice is typically performed during significant religious ceremonies, festivals, or personal milestones, symbolizing the importance of sharing and hospitality in Hindu culture.</p>
-                    <p>The meal is usually a lavish spread of various vegetarian dishes, served on banana leaves, which adds a traditional touch. This ceremony is believed to invoke blessings and goodwill, promoting harmony and prosperity in the home.</p>
-                    
-                    <strong>Benefits of Brahmin Bhojanam:</strong>
-                    <ul>
-                        <li><strong>Divine Blessings:</strong> Offering food to Brahmins is said to attract divine blessings, enhancing spiritual and material well-being.</li>
-                        <li><strong>Social Harmony:</strong> This ritual fosters a sense of unity and community, strengthening social bonds among participants.</li>
-                        <li><strong>Cultural Preservation:</strong> Engaging in Brahmin Bhojanam helps preserve traditional customs and practices, connecting generations.</li>
-                        <li><strong>Acts of Service:</strong> Serving others promotes humility and selflessness, essential virtues in Hindu philosophy.</li>
-                    </ul>
-                    <p>Through Brahmin Bhojanam, individuals not only honor their heritage but also contribute to the spiritual and communal fabric of society.</p>
-                `
-            },
-            'Subpage 3': {
-                title: 'Annadanam',
+function showContent(subpage) {
+    const content = {
+        'Subpage 1': {
+            title: 'Brahmachari Bhojanam',
+            img: 'https://th.bing.com/th/id/OIG2.G22OfdFFVKN22uFCVHro?pid=ImgGn', // Updated to just the URL
+            desc: `
+                <strong>Brahmachari Bhojanam Description:</strong>
+                <p>Brahmachari Bhojanam is a traditional ritual that involves offering food to Brahmacharis (celibate students or spiritual seekers) as a form of gratitude and reverence. This ceremony is often performed to seek blessings for prosperity, peace, and spiritual growth. The meal typically consists of a variety of vegetarian dishes, symbolizing abundance and purity.</p>
+                <p>During the ceremony, the Brahmacharis are invited to partake in a meal, which is usually prepared with love and devotion. The act of serving food to Brahmacharis is seen as an act of dharma (righteousness) and is believed to bring auspiciousness to the host's home.</p>
                 
-		     img: '<img src="https://th.bing.com/th/id/OIG3.bf1qCHpA0lRd5j7_sTNv?pid=ImgGn" class="subpage-image" alt="Subpage Image">',
-                desc: `
-                    <strong>Annadanam Description:</strong>
-                    <p>Annadanam, or the act of providing food to those in need, is one of the highest forms of charity in Hindu tradition. This ritual involves offering meals to the hungry, signifying compassion, generosity, and the importance of sharing one's resources.</p>
-                    <p>Often organized during festivals or special occasions, Annadanam emphasizes the spiritual and moral duty to care for the less fortunate. It is believed that by feeding others, one accumulates good karma and brings joy and sustenance to those in need.</p>
-                    
-                    <strong>Benefits of Annadanam:</strong>
-                    <ul>
-                        <li><strong>Spiritual Merit:</strong> Engaging in Annadanam is considered an act of dharma, enhancing one's spiritual merit and connection to the divine.</li>
-                        <li><strong>Community Impact:</strong> This practice helps alleviate hunger and poverty, fostering social welfare and community bonding.</li>
-                        <li><strong>Promotion of Values:</strong> It teaches the importance of empathy, kindness, and the duty to support those less fortunate.</li>
-                        <li><strong>Legacy of Generosity:</strong> Annadanam instills a culture of giving, inspiring others to engage in charitable acts.</li>
-                    </ul>
-                    <p>By practicing Annadanam, individuals not only fulfill a moral obligation but also enrich their own lives through acts of kindness and compassion.</p>
-                `
-            }
-        };
-
-        // Set the selected content
-        if (content[subpage]) {
-            document.getElementById('subContentTitle').innerText = content[subpage].title;
-            document.getElementById('subContentImage').src = content[subpage].img;
-            document.getElementById('subContentDescription').innerHTML = content[subpage].desc; // Use innerHTML for rendering HTML
-            document.getElementById('brahminBhojPage').classList.add('hidden');
-            document.getElementById('subContent').classList.remove('hidden');
-			document.getElementById('subContentTitle').innerHTML = `<h2 style="text-align: center;">${content[subpage].title}</h2>`;
+                <strong>Benefits of Brahmachari Bhojanam:</strong>
+                <ul>
+                    <li><strong>Spiritual Growth:</strong> Serving Brahmacharis is considered a way to gain spiritual merit. It helps cultivate humility and selflessness.</li>
+                    <li><strong>Blessings:</strong> It is believed that Brahmacharis possess a higher spiritual energy. Offering them food invokes their blessings for success, prosperity, and peace in life.</li>
+                    <li><strong>Abundance:</strong> The act of sharing food symbolizes abundance and promotes a mindset of generosity, attracting prosperity to the household.</li>
+                    <li><strong>Cleansing Ritual:</strong> Participating in Brahmachari Bhojanam purifies the environment and the mind, leading to a serene and positive atmosphere.</li>
+                    <li><strong>Community Bonding:</strong> This ritual fosters a sense of community and connection among participants, strengthening social ties and relationships.</li>
+                    <li><strong>Promotion of Values:</strong> It teaches values of service, respect for ascetics, and the importance of maintaining a healthy diet.</li>
+                    <li><strong>Cultural Significance:</strong> Engaging in such rituals helps preserve cultural heritage and traditions, connecting generations through shared practices.</li>
+                </ul>
+                <p>By partaking in Brahmachari Bhojanam, individuals not only enhance their spiritual journey but also contribute to the well-being of their community and family.</p>
+            `
+        },
+        'Subpage 2': {
+            title: 'Brahmin Bhojanam',
+            img: 'https://th.bing.com/th/id/OIG3.zegyFRiBFFud209Px..k?pid=ImgGn', // Updated to just the URL
+            desc: `
+                <strong>Brahmin Bhojanam Description:</strong>
+                <p>Brahmin Bhojanam is a revered ritual that involves offering a meal to Brahmins (Hindu priests or scholars) as an expression of respect and gratitude. This practice is typically performed during significant religious ceremonies, festivals, or personal milestones, symbolizing the importance of sharing and hospitality in Hindu culture.</p>
+                <p>The meal is usually a lavish spread of various vegetarian dishes, served on banana leaves, which adds a traditional touch. This ceremony is believed to invoke blessings and goodwill, promoting harmony and prosperity in the home.</p>
+                
+                <strong>Benefits of Brahmin Bhojanam:</strong>
+                <ul>
+                    <li><strong>Divine Blessings:</strong> Offering food to Brahmins is said to attract divine blessings, enhancing spiritual and material well-being.</li>
+                    <li><strong>Social Harmony:</strong> This ritual fosters a sense of unity and community, strengthening social bonds among participants.</li>
+                    <li><strong>Cultural Preservation:</strong> Engaging in Brahmin Bhojanam helps preserve traditional customs and practices, connecting generations.</li>
+                    <li><strong>Acts of Service:</strong> Serving others promotes humility and selflessness, essential virtues in Hindu philosophy.</li>
+                </ul>
+                <p>Through Brahmin Bhojanam, individuals not only honor their heritage but also contribute to the spiritual and communal fabric of society.</p>
+            `
+        },
+        'Subpage 3': {
+            title: 'Annadanam',
+            img: 'https://th.bing.com/th/id/OIG3.bf1qCHpA0lRd5j7_sTNv?pid=ImgGn', // Updated to just the URL
+            desc: `
+                <strong>Annadanam Description:</strong>
+                <p>Annadanam, or the act of providing food to those in need, is one of the highest forms of charity in Hindu tradition. This ritual involves offering meals to the hungry, signifying compassion, generosity, and the importance of sharing one's resources.</p>
+                <p>Often organized during festivals or special occasions, Annadanam emphasizes the spiritual and moral duty to care for the less fortunate. It is believed that by feeding others, one accumulates good karma and brings joy and sustenance to those in need.</p>
+                
+                <strong>Benefits of Annadanam:</strong>
+                <ul>
+                    <li><strong>Spiritual Merit:</strong> Engaging in Annadanam is considered an act of dharma, enhancing one's spiritual merit and connection to the divine.</li>
+                    <li><strong>Community Impact:</strong> This practice helps alleviate hunger and poverty, fostering social welfare and community bonding.</li>
+                    <li><strong>Promotion of Values:</strong> It teaches the importance of empathy, kindness, and the duty to support those less fortunate.</li>
+                    <li><strong>Legacy of Generosity:</strong> Annadanam instills a culture of giving, inspiring others to engage in charitable acts.</li>
+                </ul>
+                <p>By practicing Annadanam, individuals not only fulfill a moral obligation but also enrich their own lives through acts of kindness and compassion.</p>
+            `
         }
-    }
+    };
 
-    function backToBrahminBhoj() {
-        document.getElementById('brahminBhojPage').classList.remove('hidden');
-        document.getElementById('subContent').classList.add('hidden');
-    }
-
-    function goBackToMain() {
-        document.querySelector('.grid-container').style.display = 'flex';
+    // Set the selected content
+    if (content[subpage]) {
+        document.getElementById('subContentTitle').innerHTML = `<h2 style="text-align: center;">${content[subpage].title}</h2>`;
+        document.getElementById('subContentImage').innerHTML = `<img src="${content[subpage].img}" class="subpage-image" alt="Subpage Image">`; // Set the innerHTML to include the image
+        document.getElementById('subContentDescription').innerHTML = content[subpage].desc; // Use innerHTML for rendering HTML
         document.getElementById('brahminBhojPage').classList.add('hidden');
+        document.getElementById('subContent').classList.remove('hidden');
+    }
+}
+
+// Function to go back to the Brahmin Bhojanam page
+function backToBrahminBhoj() {
+    document.getElementById('brahminBhojPage').classList.remove('hidden');
+    document.getElementById('subContent').classList.add('hidden');
+}
+
+// Function to go back to the main page
+function goBackToMain() {
+    document.querySelector('.grid-container').style.display = 'flex';
+    document.getElementById('brahminBhojPage').classList.add('hidden');
+
+
     }
 
     function submitForm(event) {
