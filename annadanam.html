@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annadanam - Pay As You Wish</title>
+    <style>
+            /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #400464;
+            margin: 0;
+		    padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #c874fc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #white;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #white;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: #white;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+
+        .pay-button {
+            background-color: #28a745;
+            color: #fff;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .pay-button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .pay-button:active {
+            transform: scale(0.98);
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1em;
+				color: #white;
+            }
+
+            .donate-button {
+                font-size: 1.1em;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Support Annadanam</h1>
+        <p>Your generous contribution will help us serve food to those in need. Every donation counts, and you can pay as you wish.</p>
+        <form action="https://paypal.me/harshaupadrasta" method="post" target="_top">
+            <label for="amount">Enter your donation amount: ₹</label>
+            <input type="number" id="amount" name="amount" min="1" step="any" required>
+            <br><br>
+            <button class="pay-button" type="submit">Donate Now</button>
+        </form>
+    </div>
+</body>
+</html>
