@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homams</title>
+    <style>
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .homam-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .homam-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        .homam-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .description-button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .description-button:hover {
+            background: #0056b3;
+        }
+        /* Modal styles */
+        #descriptionModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+        #modalContent {
+            background: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        #modalContent img {
+            max-width: 100%;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+        #modalContent button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #closeModal {
+            background: #dc3545;
+            color: white;
+        }
+        #backButton {
+            background: #6c757d;
+            color: white;
+        }
+        #bookRutvikButton {
+            background: #28a745;
+            color: white;
+        }
+		
+		/* Container for buttons */
+.button-container {
+    display: flex;              /* Align buttons side by side */
+    justify-content: center;    /* Center the buttons */
+    margin: 20px;              /* Space around buttons */
+}
+
+/* Base styles for buttons */
+button {
+    padding: 10px 20px;       /* Padding inside the button */
+    font-size: 16px;          /* Font size */
+    border: none;             /* No border */
+    border-radius: 5px;       /* Rounded corners */
+    cursor: pointer;          /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+/* Styles for the 'Book Rutvik' button */
+.bookRutvikButton {
+    background-color: #4CAF50; /* Green background */
+    color: white;              /* White text */
+}
+
+/* Hover effect for 'Book Rutvik' button */
+.bookRutvikButton:hover {
+    background-color: #45a049; /* Darker green on hover */
+    color: white;
+	transform: scale(1.05);    /* Slightly enlarge on hover */
+}
+
+/* Styles for the 'Back' button */
+.backButton {
+    background-color: #f44336; /* Red background */
+    color: white;              /* White text */
+}
+
+/* Hover effect for 'Back' button */
+.backButton:hover {
+    background-color: #e53935; /* Darker red on hover */
+    color: white;
+	transform: scale(1.05);    /* Slightly enlarge on hover */
+}
+
+        .selectpackageButton,
+        .bookRutvikButton {
+            background-color: #8682ae;00b35d
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+
+}
+ .selectpackageButton2,
+        .bookRutvikButton {
+            background-color: #00b35d;00b35d
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+
+}
+.background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+		   /* Modal styles */
+        #descriptionModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+        #modalContent {
+            background: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        #modalContent img {
+            max-width: 100%;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+        #modalContent button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #closeModal {
+            background: #dc3545;
+            color: white;
+        }
+        #backButton {
+            background: #6c757d;
+            color: white;
+        }
+        #bookRutvikButton {
+            background: #28a745;
+            color: white;
+        }
+		#modalHomamImage {
+    max-width: 50%; /* Adjust this value as needed */
+    margin: 0 auto;
+    display: block;
+    border-radius: 10px;
+}
+  h1 {
+            font-family:  Arial, sans-serif;
+            font-size: 36px;
+            font-weight: normal;
+            color: #f8f9f9;
+        }
+    </style>
+</head>
+<body>
+<video class="background-video" autoplay loop muted>
+        <source src="bg1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+<h1>Homams perform by our Rutvik</h1>
+
+<div class="homam-container">
+    <!-- Each card contains a homam description -->
+    <div class="homam-card">
+        <h2>Ayushya Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG1.zN98UusdK5W4vH3wh6ks?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Ayushya Homam">
+        <button class="description-button" data-homam="Ayushya Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Chandi Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG1.xffFYR0GicoAjKweFU5D?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Chandi Homam">
+        <button class="description-button" data-homam="Chandi Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Dhanvantari Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG1.3AOrZROlho4EnTJ977T4?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Dhanvantari Homam">
+        <button class="description-button" data-homam="Dhanvantari Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Durga Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG4.K8vYFjbkmR9tMSqnaddt?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Durga Homam">
+        <button class="description-button" data-homam="Durga Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Ganapathi Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG4.ZmsKGDY1qpcQcGqyhiMy?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Ganapathi Homam">
+        <button class="description-button" data-homam="Ganapathi Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Hayagreeva Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG4.6g1WGIvL2V8e_68mklww?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Hayagreeva Homam">
+        <button class="description-button" data-homam="Hayagreeva Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Kala Bhairava Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG3.FG4s_af2r6C92Cg59DQZ?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Kala Bhairava Homam">
+        <button class="description-button" data-homam="Kala Bhairava Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Karthaveeryarjuna Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG2.7NYVo2G82C3y_QxTY3QI?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Karthaveeryarjuna Homam">
+        <button class="description-button" data-homam="Karthaveeryarjuna Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Lakshmi Ganapathi Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG2.QCbOFokLBfEb4uHckE0h?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Lakshmi Ganapathi Homam">
+        <button class="description-button" data-homam="Lakshmi Ganapathi Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Lakshmi Kubera Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG2.YAFVpH78AeUPAvfVMV17?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Lakshmi Kubera Homam">
+        <button class="description-button" data-homam="Lakshmi Kubera Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Lakshmi Narasimha Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG1.WiznvRmhDBwA4.H2tgEx?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Lakshmi Narasimha Homam">
+        <button class="description-button" data-homam="Lakshmi Narasimha Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Maha Mrityunjaya Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG1._ejhArFXFhMGdfplHZ1p?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Maha Mrityunjaya Homam">
+        <button class="description-button" data-homam="Maha Mrityunjaya Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Maha Sudarshana Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG1.hIhVrQ7z6F3pBRUwwG9V?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Maha Sudarshana Homam">
+        <button class="description-button" data-homam="Maha Sudarshana Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Mahalakshmi Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG3.MYGmICYz.__oMJWEOtSj?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Mahalakshmi Homam">
+        <button class="description-button" data-homam="Mahalakshmi Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Navagraha Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG1.6isB_vcwqyVZa.ayL.z4?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Navagraha Homam">
+        <button class="description-button" data-homam="Navagraha Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Pavamana Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG4.nIwxsQo.8oqgcBkz2gH4?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Pavamana Homam">
+        <button class="description-button" data-homam="Pavamana Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Pratyangira Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG4.4SMdfITy85P2Vc4xxgwo?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Pratyangira Homam">
+        <button class="description-button" data-homam="Pratyangira Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Rudra Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG3.x04CVZP44_jGBtMa7XHy?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Rudra Homam">
+        <button class="description-button" data-homam="Rudra Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Shree Vidhya Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG3.13FNYx.gEGvz3T3_oNLc?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Shree Vidhya Homam">
+        <button class="description-button" data-homam="Shree Vidhya Homam">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Shri Ganesh Homam</h2>
+        <img src="https://th.bing.com/th/id/OIG2._un8Yru2k1CnzZujIY0Y?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Shri Ganesh Homam">
+        <button class="description-button" data-homam="Shri Ganesh Homam">View Description</button>
+    </div>
+    <div id="descriptionModal">
+    <div id="modalContent">
+        <span id="closeModal">back<br><br>&times;</span>
+        <h2 id="modalHomamTitle"></h2>
+        <img id="modalHomamImage" src="https://t3.ftcdn.net/jpg/02/22/82/06/360_F_222820631_WRuNhAnUV3N8V78LYAo2SYaPY8bVqvbD.jpg" alt="Homam Image" style="width:50%;">
+        <p id="modalHomamDescription"></p>
+        <p><strong>When to Perform:</strong> <span id="modalWhenToPerform"></span></p>
+        <p><strong>Benefits:</strong> <span id="modalBenefits"></span></p>
+        <!--<button id="backButton">Back</button>
+        <button id="bookRutvikButton">Book Rutvik</button>-->
+		<button class="selectpackageButton" onclick="window.location.href='file:///C:/Users/upadr/OneDrive/Desktop/rutvik/telugu/ourservices/checkoutdemo2.html'">select package</button>
+		<button class="bookRutvikButton" onclick="window.location.href='https://formfacade.com/public/109484607677686887914/all/form/1FAIpQLSdyXBTRdqRUah_CkCmsqHzYPX6ftxorCwJLvp9IeRu6KnK1SA'">Book Rutvik</button>
+		<button class="backButton" onclick="window.location.href='https://upadrastaharshavardhan.github.io/rutvikservices/'">Close</button>
+        
+    </div>
+</div>
+ 
+<!-- Modal for description -->
+<div id="descriptionModal">
+    <div id="modalContent">
+        <h2 id="homamTitle"></h2>
+        <img id="homamImage" src="" alt="">
+        <p id="homamDescription"></p>
+        <h3>When to Perform:</h3>
+        <p id="whenToPerform"></p>
+        <h3>Benefits:</h3>
+        <p id="benefits"></p>
+        
+        <!--<button id="backButton">Back</button>
+        <button id="bookRutvikButton">Book Rutvik</button>-->
+		<button class="bookRutvikButton" id="checkoutButton">select package</button>
+		<button class="bookRutvikButton" onclick="window.location.href='https://formfacade.com/public/109484607677686887914/all/form/1FAIpQLSdyXBTRdqRUah_CkCmsqHzYPX6ftxorCwJLvp9IeRu6KnK1SA'">Book Rutvik</button>
+		<button class="backButton" id="closeModal">Back</button>
+		<button class="backButton" onclick="window.location.href='https://upadrastaharshavardhan.github.io/rutvikservices/'">Close</button>
+    </div>
+</div>
+
+<script>
+    const homams = {
+            "Ayushya Homam": {
+                description: "Ayushya Homam – Invoking Ayur Devudu for Health and Longevity\nOverview: Ayur Devudu, known as the \"God of Life,\" represents vitality and longevity. Ayushya Homam is a powerful Vedic ritual performed to seek blessings from Ayur Devudu for good health, extended life, and relief from illnesses. This homam is particularly beneficial for individuals experiencing health challenges, physical stress, or those with a Balarishta Yoga (adverse planetary combination) in their birth chart.",
+                whenToPerform: "Ideally scheduled based on the individual’s Janma Nakshatra (birth star). It can be conducted on any auspicious day, especially if the person is unwell, facing health crises, or suffering from chronic ailments.",
+                benefits: "Health and Well-being: This homam is known to alleviate physical and mental health issues, promoting overall well-being. Removal of Past Karma: It helps cleanse the negative effects of past karmas and reduces obstacles that may have originated from previous births. Planetary Protection: Ayushya Homam can mitigate the malefic effects of planets in one’s birth chart, thereby reducing the likelihood of accidents, injuries, and health complications. Longevity: It strengthens the life force energy, helping the individual enjoy a longer, healthier life.",
+                image: "https://th.bing.com/th/id/OIG1.zN98UusdK5W4vH3wh6ks?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn",
+                checkoutUrl: "file:///C:/Users/upadr/OneDrive/Desktop/rutvik/telugu/ourservices/checkoutdemo2.html"
+            },
+            "Chandi Homam": {
+                description: "Chandi Homam is a powerful ritual dedicated to Goddess Chandi, aimed at overcoming obstacles and difficulties in life.",
+                whenToPerform: "It is recommended during times of crisis, for success in endeavors, or to seek protection.",
+                benefits: "Helps in overcoming fears, gaining strength, and achieving victory in challenging situations.",
+                image: "https://th.bing.com/th/id/OIG1.xffFYR0GicoAjKweFU5D?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn",
+                checkoutUrl: "file:///C:/Users/upadr/OneDrive/Desktop/rutvik/telugu/ourservices/checkoutdemo.html"
+            },
+            "Dhanvantari Homam": {
+                description: "Dhanvantari Homam is performed to invoke Lord Dhanvantari, the deity of health and medicine.",
+                whenToPerform: "This homam is best performed when one is facing health issues or to enhance overall well-being.",
+                benefits: "Promotes health, well-being, and the recovery from illnesses.",
+                image: "https://th.bing.com/th/id/OIG1.3AOrZROlho4EnTJ977T4?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn",
+                checkoutUrl: "file:///C:/Users/upadr/OneDrive/Desktop/rutvik/telugu/ourservices/checkoutDhanvantari.html"
+            },
+        "Durga Homam": {
+            description: "Durga Homam is dedicated to Goddess Durga and is performed for protection, strength, and to remove negativity.",
+            whenToPerform: "Can be performed during Navaratri or when seeking protection from evil influences.",
+            benefits: "Enhances strength, removes obstacles, and provides spiritual upliftment.",
+            image: "https://th.bing.com/th/id/OIG4.K8vYFjbkmR9tMSqnaddt?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Ganapathi Homam": {
+            description: "Ganapathi Homam is a ritual for invoking Lord Ganesh, the remover of obstacles and the god of beginnings.",
+            whenToPerform: "Typically performed at the start of new ventures or before exams.",
+            benefits: "Brings success, removes obstacles, and enhances wisdom.",
+            image: "https://th.bing.com/th/id/OIG4.ZmsKGDY1qpcQcGqyhiMy?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Hayagreeva Homam": {
+            description: "Hayagreeva Homam is dedicated to Lord Hayagreeva, the deity of knowledge and wisdom.",
+            whenToPerform: "Best performed during times of study or intellectual pursuits.",
+            benefits: "Enhances knowledge, wisdom, and concentration.",
+            image: "https://th.bing.com/th/id/OIG4.6g1WGIvL2V8e_68mklww?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Kala Bhairava Homam": {
+            description: "Kala Bhairava Homam is performed to seek blessings for protection and removal of fears.",
+            whenToPerform: "Recommended during times of uncertainty or fear.",
+            benefits: "Provides protection, peace of mind, and overcomes obstacles.",
+            image: "https://th.bing.com/th/id/OIG3.FG4s_af2r6C92Cg59DQZ?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Karthaveeryarjuna Homam": {
+            description: "Karthaveeryarjuna Homam is performed for strength, power, and overcoming challenges.",
+            whenToPerform: "Can be performed when facing difficult situations or seeking empowerment.",
+            benefits: "Enhances strength, confidence, and the ability to face challenges.",
+            image: "https://th.bing.com/th/id/OIG2.7NYVo2G82C3y_QxTY3QI?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Lakshmi Ganapathi Homam": {
+            description: "Lakshmi Ganapathi Homam is performed for wealth and prosperity, invoking both Lakshmi and Ganesh.",
+            whenToPerform: "Best performed during festivals or before starting new financial ventures.",
+            benefits: "Brings prosperity, wealth, and success in financial matters.",
+            image: "https://th.bing.com/th/id/OIG2.QCbOFokLBfEb4uHckE0h?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Lakshmi Kubera Homam": {
+            description: "Lakshmi Kubera Homam is dedicated to Lord Kubera for wealth and financial stability.",
+            whenToPerform: "Recommended during financial difficulties or seeking to enhance wealth.",
+            benefits: "Attracts wealth, prosperity, and financial stability.",
+            image: "https://th.bing.com/th/id/OIG2.YAFVpH78AeUPAvfVMV17?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Lakshmi Narasimha Homam": {
+            description: "Lakshmi Narasimha Homam is performed for protection and to overcome negative energies.",
+            whenToPerform: "Best performed during troubling times or seeking spiritual protection.",
+            benefits: "Provides safety, removes negativity, and enhances spiritual growth.",
+            image: "https://th.bing.com/th/id/OIG1.WiznvRmhDBwA4.H2tgEx?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Maha Mrityunjaya Homam": {
+            description: "Maha Mrityunjaya Homam is a powerful ritual for healing and overcoming fear of death.",
+            whenToPerform: "Recommended during illness or for those seeking spiritual rejuvenation.",
+            benefits: "Promotes healing, protection from untimely death, and overall well-being.",
+            image: "https://th.bing.com/th/id/OIG1._ejhArFXFhMGdfplHZ1p?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Maha Sudarshana Homam": {
+            description: "Maha Sudarshana Homam is performed for protection and removal of evil forces.",
+            whenToPerform: "Can be performed during times of distress or fear.",
+            benefits: "Brings peace, protection, and harmony in life.",
+            image: "https://th.bing.com/th/id/OIG1.hIhVrQ7z6F3pBRUwwG9V?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Mahalakshmi Homam": {
+            description: "Mahalakshmi Homam is dedicated to Goddess Lakshmi for wealth and prosperity.",
+            whenToPerform: "Best performed during auspicious occasions or festivals.",
+            benefits: "Attracts wealth, prosperity, and abundance in life.",
+            image: "https://th.bing.com/th/id/OIG3.MYGmICYz.__oMJWEOtSj?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Navagraha Homam": {
+            description: "Navagraha Homam is performed to appease the nine celestial bodies for harmony and prosperity.",
+            whenToPerform: "Recommended during astrological troubles or for overall well-being.",
+            benefits: "Brings balance, harmony, and peace in life.",
+            image: "https://th.bing.com/th/id/OIG1.6isB_vcwqyVZa.ayL.z4?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Pavamana Homam": {
+            description: "Pavamana Homam is performed for purification and spiritual growth.",
+            whenToPerform: "Best performed during personal transformations or seeking clarity.",
+            benefits: "Promotes purification, spiritual growth, and emotional healing.",
+            image: "https://th.bing.com/th/id/OIG4.nIwxsQo.8oqgcBkz2gH4?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Pratyangira Homam": {
+            description: "Pratyangira Homam is dedicated to Goddess Pratyangira for protection from negative forces.",
+            whenToPerform: "Recommended during times of distress or fear.",
+            benefits: "Provides protection, enhances courage, and removes negativity.",
+            image: "https://th.bing.com/th/id/OIG4.4SMdfITy85P2Vc4xxgwo?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Rudra Homam": {
+            description: "Rudra Homam is performed for invoking Lord Shiva for peace and auspiciousness.",
+            whenToPerform: "Can be performed during personal or family troubles.",
+            benefits: "Brings peace, prosperity, and spiritual elevation.",
+            image: "https://th.bing.com/th/id/OIG3.x04CVZP44_jGBtMa7XHy?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Shree Vidhya Homam": {
+            description: "Shree Vidhya Homam is performed for gaining knowledge and wisdom.",
+            whenToPerform: "Best performed during educational pursuits or seeking clarity.",
+            benefits: "Enhances knowledge, wisdom, and spiritual insight.",
+            image: "https://th.bing.com/th/id/OIG3.13FNYx.gEGvz3T3_oNLc?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        "Shri Ganesh Homam": {
+            description: "Shri Ganesh Homam is a ritual for invoking Lord Ganesh to remove obstacles and bring success.",
+            whenToPerform: "Typically performed at the start of new projects or ventures.",
+            benefits: "Brings success, removes obstacles, and enhances creativity.",
+            image: "https://th.bing.com/th/id/OIG2._un8Yru2k1CnzZujIY0Y?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+        },
+        
+    };
+	    document.querySelectorAll('.description-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const homamName = this.getAttribute('data-homam');
+            const homamDetails = homams[homamName];
+
+            document.getElementById('modalHomamTitle').textContent = homamName;
+            document.getElementById('modalHomamDescription').textContent = homamDetails.description;
+            document.getElementById('modalWhenToPerform').textContent = homamDetails.whenToPerform;
+            document.getElementById('modalBenefits').textContent = homamDetails.benefits;
+            document.getElementById('modalHomamImage').src = homamDetails.image;
+		    document.getElementById('checkoutButton').onclick = function() {
+                window.location.href = homamDetails.checkoutUrl;
+            };
+
+            document.getElementById('descriptionModal').style.display = 'block';
+        });
+    });
+
+    document.getElementById('closeModal').onclick = function() {
+        document.getElementById('descriptionModal').style.display = 'none';
+    };
+
+    document.querySelector('.backButton').onclick = function() {
+        document.getElementById('descriptionModal').style.display = 'none';
+    };
+</script>
+</body>
+</html>
