@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homams</title>
+    <style>
+        /* General Body Styling */
+     body {
+            font-family: Arial, sans-serif;
+            background-color: #400464; /* Body background color */
+            color: #fff; /* Changed text color for better contrast */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #c874fc; /* Header background color */
+            color: white; /* Text color in the header */
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1, h2, h3,h4,P,li,label {
+            margin: 0;
+            padding: 10px 0;
+			color: black;
+        }
+
+        #homams {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        .homam {
+            background-color: white;
+            border: 2px solid #6a1b9a;
+            border-radius: 8px;
+            margin: 15px 0;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #6a1b9a;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #4a137a;
+        }
+
+        /* Checkout Modal Styling */
+        #checkout {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #4a137a;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            overflow-y: auto; /* Allow scrolling */
+            max-height: 80%; /* Limit height to prevent overflowing */
+        }
+
+        /* Background Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 500;
+        }
+
+        #selected-package-details {
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-section {
+            margin: 15px 0;
+        }
+
+        .form-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-section input, .form-section select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .upload-instructions {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            #homams, #checkout {
+                padding: 10px;
+            }
+
+            button {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+        }
+		 .feedback-form {
+            background-color: #c874fc;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ff0000;
+        }
+        .feedback-form input, .feedback-form textarea, .feedback-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .feedback-form button {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .feedback-form button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Homams</h1>
+</header>
+
+<div id="homams">
+    <!-- Homams List -->
+    <div class="homam">
+        <h2>Ayushya Homam</h2>
+        <p>This homam is performed for the longevity and health of the individual.</p>
+        <button onclick="showPackages('Ayushya Homam')">Select Packages</button>
+    </div>
+    
+    <div class="homam">
+        <h2>Chandi Homam</h2>
+        <p>This homam is dedicated to Goddess Chandi for strength and power.</p>
+        <button onclick="showPackages('Chandi Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Dhanvantari Homam</h2>
+        <p>This homam is performed for health and healing.</p>
+        <button onclick="showPackages('Dhanvantari Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Durga Homam</h2>
+        <p>This homam invokes the blessings of Goddess Durga for protection and strength.</p>
+        <button onclick="showPackages('Durga Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Ganapathi Homam</h2>
+        <p>This homam is performed to remove obstacles and ensure success.</p>
+        <button onclick="showPackages('Ganapathi Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Hayagreeva Homam</h2>
+        <p>This homam is performed for knowledge and wisdom.</p>
+        <button onclick="showPackages('Hayagreeva Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Kala Bhairava Homam</h2>
+        <p>This homam is performed for fearlessness and protection from negative energies.</p>
+        <button onclick="showPackages('Kala Bhairava Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Karthaveeryarjuna Homam</h2>
+        <p>This homam is performed for prosperity and abundance.</p>
+        <button onclick="showPackages('Karthaveeryarjuna Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Lakshmi Ganapathi Homam</h2>
+        <p>This homam is performed for wealth and success.</p>
+        <button onclick="showPackages('Lakshmi Ganapathi Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Lakshmi Kubera Homam</h2>
+        <p>This homam is performed to attract wealth and prosperity.</p>
+        <button onclick="showPackages('Lakshmi Kubera Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Lakshmi Narasimha Homam</h2>
+        <p>This homam is performed for protection and to remove obstacles.</p>
+        <button onclick="showPackages('Lakshmi Narasimha Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Maha Mrityunjaya Homam</h2>
+        <p>This homam is performed for overcoming fears and health issues.</p>
+        <button onclick="showPackages('Maha Mrityunjaya Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Maha Sudarshana Homam</h2>
+        <p>This homam is performed for removing negativity and attracting positive energies.</p>
+        <button onclick="showPackages('Maha Sudarshana Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Mahalakshmi Homam</h2>
+        <p>This homam is performed for wealth and abundance.</p>
+        <button onclick="showPackages('Mahalakshmi Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Navagraha Homam</h2>
+        <p>This homam is performed for planetary blessings and harmony.</p>
+        <button onclick="showPackages('Navagraha Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Pavamana Homam</h2>
+        <p>This homam is performed for purification and well-being.</p>
+        <button onclick="showPackages('Pavamana Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Pratyangira Homam</h2>
+        <p>This homam is performed for protection from negative forces.</p>
+        <button onclick="showPackages('Pratyangira Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Rudra Homam</h2>
+        <p>This homam is performed for peace and tranquility.</p>
+        <button onclick="showPackages('Rudra Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Shree Vidhya Homam</h2>
+        <p>This homam is performed for knowledge and wisdom.</p>
+        <button onclick="showPackages('Shree Vidhya Homam')">Select Packages</button>
+    </div>
+
+    <div class="homam">
+        <h2>Shri Ganesh Homam</h2>
+        <p>This homam is performed to remove obstacles and ensure success.</p>
+        <button onclick="showPackages('Shri Ganesh Homam')">Select Packages</button>
+    </div>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeCheckout()"></div>
+
+<div id="checkout">
+    <h2>Checkout</h2>
+    <button onclick="closeCheckout()">Back</button>
+    <div id="selected-package-details"></div>
+    <p>Choose your payment option:</p>
+    <ul>
+        <li>Advance Payment: Pay 50% of the amount to confirm your booking.</li>
+        <li>Full Payment: Pay the complete amount upfront.</li>
+    </ul>
+    
+   <!-- Google Form Embed for Payment Confirmation -->
+<div class="feedback-form">
+        <h2>fill the payment details below:</h2>
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSeeTVy-B_rz41y3MAkfqjTlsX24RMCVqsrU01lUjiPoJKBnnw/formResponse" method="POST" target="hidden_iframe">
+      	
+			<label for="nameofthepayer">Name of the payer :</label>
+            <input id="nameofthepayer" name="entry.1357108683" rows="4" required></input>
+               
+			<label for="Paidamount">Paid amount:</label>
+            <input id="Paidamount" name="entry.383526464" rows="4" required></input>
+			
+			<label for="Transactionid">Transaction Id :</label>
+            <input id="Transactionid" name="entry.1592139097" rows="4" required></input>
+           
+            <button type="submit">Submit </button>
+        </form>
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+    </div>
+
+<script>
+    const packages = {
+        "Ayushya Homam": [
+            { type: "Economy Package", cost: 10800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 19800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 29800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Chandi Homam": [
+            { type: "Economy Package", cost: 29800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 39800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 49800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Dhanvantari Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Durga Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Ganapathi Homam": [
+            { type: "Economy Package", cost: 10800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 19800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 29800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Hayagreeva Homam": [
+            { type: "Economy Package", cost: 12800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Kala Bhairava Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Karthaveeryarjuna Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Lakshmi Ganapathi Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Lakshmi Kubera Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Lakshmi Narasimha Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Maha Mrityunjaya Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Maha Sudarshana Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Mahalakshmi Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Navagraha Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Pavamana Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Pratyangira Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Rudra Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Shree Vidhya Homam": [
+            { type: "Economy Package", cost: 15800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 22800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 34800, description: "7 Priests + Grand Alankaram" }
+        ],
+        "Shri Ganesh Homam": [
+            { type: "Economy Package", cost: 10800, description: "2 Priests + All Pooja Materials" },
+            { type: "Standard Package", cost: 19800, description: "4 Priests + All Pooja Materials" },
+            { type: "Premium Package", cost: 29800, description: "7 Priests + Grand Alankaram" }
+        ],
+    };
+
+    function showPackages(homamName) {
+        const selectedPackageDetails = document.getElementById('selected-package-details');
+        selectedPackageDetails.innerHTML = `
+            <h3>${homamName} Packages</h3>
+            ${packages[homamName].map(pkg => `
+                <div>
+                    <h4>${pkg.type}</h4>
+                    <p>Description: ${pkg.description}</p>
+                    <p>Cost: ₹${pkg.cost.toFixed(2)}</p>
+                    <button onclick="selectPackage('${homamName}', '${pkg.type}', ${pkg.cost})">Select ${pkg.type}</button>
+                </div>
+            `).join('')}
+        `;
+        document.getElementById('checkout').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+        window.scrollTo(0, 0); // Scroll to the top of the page
+    }
+
+    function closeCheckout() {
+        document.getElementById('checkout').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('selected-package-details').innerHTML = ''; // Clear details on close
+    }
+
+    function selectPackage(homamName, packageType, packageCost) {
+        const selectedPackageDetails = document.getElementById('selected-package-details');
+        selectedPackageDetails.innerHTML = `
+            <h3>Selected Package: ${packageType}</h3>
+            <p>Cost: ₹<span id="package-cost">${packageCost.toFixed(2)}</span></p>
+            <p>Inclusions:</p>
+            <ul>
+                <li>Dakshina</li>
+                <li>All Pooja Materials</li>
+                <li>
+                    <input type="checkbox" id="flowers-fruits-checkbox" onclick="updateCost(${packageCost})">
+                    Flowers & Fruits (Add ₹1,200)
+                </li>
+            </ul>
+        `;
+    }
+
+    function updateCost(baseCost) {
+        const isChecked = document.getElementById('flowers-fruits-checkbox').checked;
+        const totalCost = isChecked ? baseCost + 1200 : baseCost;
+        document.getElementById('package-cost').innerText = totalCost.toFixed(2);
+    }
+
+    //function submitForm() {
+      //  const transactionId = document.getElementById('transaction-id').value;
+      //  const paymentScreenshot = document.getElementById('payment-screenshot').files[0];
+
+       // if (!transactionId || !paymentScreenshot) {
+         //   alert("Please fill out all fields and upload the payment screenshot.");
+          //  return;
+       // }
+
+        // Process form submission as needed (e.g., sending to a server)
+        //alert("Payment details submitted successfully!");
+   // }
+	//function submitForm() {
+ //   const transactionId = document.getElementById('transaction-id').value;
+ //   const paymentScreenshot = document.getElementById('payment-screenshot').files[0];
+
+ //   if (!transactionId || !paymentScreenshot) {
+      //  alert("Please fill out all fields and upload the payment screenshot.");
+       // return;
+  //  }
+
+    // Assuming you have uploaded the file to Google Drive and obtained the shareable link
+    //const fileShareableLink = "https://drive.google.com/drive/folders/1b9w6qN4tXvh3jBYjE-vtbBonB-eKr_OtNK0UtGXFXnJ9kU_mrK3VdDC18u0Mi2yTs2RmJ1vv?usp=drive_link/view";
+
+   // const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLScMq4PrdTxTAsXKtJzSAP59-8YdSa9HL8uAqDB9284J2T7jtA/formResponse";
+
+    //const formData = new FormData();
+   // formData.append("entry.1556519915", "Premium Package"); // Replace with actual package type selected
+   // formData.append("entry.1809865449", transactionId); // Replace with actual transaction ID field entry
+   // formData.append("entry.868290499", fileShareableLink); // Submit the shareable link to a text field
+
+   // fetch(googleFormURL, {
+     //   method: "POST",
+     //   body: formData,
+      //  mode: "no-cors"
+  //  }).then(() => {
+   //     alert("Your payment details have been submitted successfully!");
+    //    document.getElementById('packagetype-id').value = "";
+     //   document.getElementById('transaction-id').value = "";
+    //    document.getElementById('payment-screenshot').value = "";
+    //    document.getElementById('checkout').style.display = 'none';
+  //  }).catch(error => {
+       // alert("There was an error submitting your details. Please try again.");
+     //   console.error("Error:", error);
+   // });
+//}
+
+</script>
+</body>
+</html>
