@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanti poojas</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+			overflow: auto;
+        }
+        .homam-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .homam-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        .homam-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .description-button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .description-button:hover {
+            background: #0056b3;
+        }
+        /* Modal styles */
+        #descriptionModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+        #modalContent {
+            background: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        #modalContent img {
+            max-width: 100%;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+        #modalContent button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #closeModal {
+            background: #dc3545;
+            color: white;
+        }
+        #checkoutButton {
+            background: #28a745;
+            color: white;
+        }
+        .backButton {
+            background: #6c757d;
+            color: white;
+        }
+		
+        .selectpackageButton,
+        .bookRutvikButton {
+            background-color: #8682ae;00b35d
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+
+}
+ .selectpackageButton2,
+        .bookRutvikButton {
+            background-color: #00b35d;00b35d
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+
+}
+.background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+		   /* Modal styles */
+        #descriptionModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+        #modalContent {
+            background: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        #modalContent img {
+            max-width: 100%;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+        #modalContent button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #closeModal {
+            background: #dc3545;
+            color: white;
+        }
+        #backButton {
+            background: #6c757d;
+            color: white;
+        }
+        #bookRutvikButton {
+            background: #28a745;
+            color: white;
+        }
+		
+/* Styles for the 'Book Rutvik' button */
+.bookRutvikButton {
+    background-color: #4CAF50; /* Green background */
+    color: white;              /* White text */
+}
+
+/* Hover effect for 'Book Rutvik' button */
+.bookRutvikButton:hover {
+    background-color: #45a049; /* Darker green on hover */
+    color: white;
+	transform: scale(1.05);    /* Slightly enlarge on hover */
+}
+
+/* Styles for the 'Back' button */
+.backButton {
+    background-color: #f44336; /* Red background */
+    color: white;              /* White text */
+}
+
+/* Hover effect for 'Back' button */
+.backButton:hover {
+    background-color: #e53935; /* Darker red on hover */
+    color: white;
+	transform: scale(1.05);    /* Slightly enlarge on hover */
+}
+  h1 {
+            font-family: Arial, sans-serif;
+            font-size: 36px;
+            font-weight: normal;
+            color: #f8f9f9;
+        }
+    </style>
+</head>
+<body>
+<video class="background-video" autoplay loop muted>
+        <source src="bg1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+<h1>Shanti poojas performed by our Rutvik</h1>
+
+<div class="homam-container">
+    <!-- Add homam cards here -->
+    <div class="homam-card">
+        <h2>Dhanishta Panchakam Shanti</h2>
+        <img src="https://th.bing.com/th/id/OIG3.bGyWD8k6Yt4FWb2ztwn0?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Dhanishta Panchakam Shanti">
+        <button class="description-button" data-homam="Dhanishta Panchakam Shanti">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Kuja Rahu Sandhi Shanti</h2>
+        <img src="https://th.bing.com/th/id/OIG4.dMcdF4bH8HcGEPJox4fU?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Kuja Rahu Sandhi Shanti">
+        <button class="description-button" data-homam="Kuja Rahu Sandhi Shanti">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Rahu Brihaspati Sandhi Shanti</h2>
+        <img src="https://th.bing.com/th/id/OIG2.OyEgSmnmW3NOheAuHfC2?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Rahu Brihaspati Sandhi Shanti">
+        <button class="description-button" data-homam="Rahu Brihaspati Sandhi Shanti">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Shani Rahu Shrapit Dosha Nivarana Shanti</h2>
+        <img src="https://th.bing.com/th/id/OIG2.3mwaFSMUSCsCTGsSwrHh?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Shani Rahu Shrapit Dosha Nivarana Shanti">
+        <button class="description-button" data-homam="Shani Rahu Shrapit Dosha Nivarana Shanti">View Description</button>
+    </div>
+    <div class="homam-card">
+        <h2>Shukra Aditya Sandhi Shanti</h2>
+        <img src="https://th.bing.com/th/id/OIG2.Oe3jmPNiXwkjBpRM0FgI?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Shukra Aditya Sandhi Shanti">
+        <button class="description-button" data-homam="Shukra Aditya Sandhi Shanti">View Description</button>
+    </div>
+</div>
+
+<div id="descriptionModal">
+    <div id="modalContent">
+        
+        <h2 id="modalHomamTitle"></h2>
+	    <span id="closeModal">back&times;</span>
+        <img id="modalHomamImage" src="" alt="Homam Image" style="width:50%;">
+        <p id="modalHomamDescription"></p>
+        <p><strong>When to Perform:</strong> <span id="modalWhenToPerform"></span></p>
+        <p><strong>Benefits:</strong> <span id="modalBenefits"></span></p>
+       <button class="bookRutvikButton" id="checkoutButton">select package</button>
+		<button class="bookRutvikButton" onclick="window.location.href='https://formfacade.com/public/109484607677686887914/all/form/1FAIpQLSdyXBTRdqRUah_CkCmsqHzYPX6ftxorCwJLvp9IeRu6KnK1SA'">Book Rutvik</button>
+		
+		<button class="backButton" onclick="window.location.href='https://upadrastaharshavardhan.github.io/rutvikservices/'">Close</button>
+    </div>
+</div>
+
+<script>
+    const homams = {
+       "Dhanishta Panchakam Shanti": {
+    description: "The Dhanishta Panchakam Shanti is a powerful ritual performed to nullify the malefic effects of the Dhanishta constellation during important life events such as marriages, housewarming ceremonies, or other auspicious occasions. The term 'Panchakam' indicates the combination of five factors that can influence the cosmic energies surrounding an event. When a significant event falls under the influence of Dhanishta Panchakam, it may invite negative planetary influences, leading to obstacles, delays, or disruptions. This homam is designed to alleviate these negative energies, ensuring a smooth and harmonious flow of events. It involves invoking the blessings of deities like Lord Shiva, Ganesha, and the Navagrahas (nine planets) to create a protective shield, making the ritual extremely auspicious.",
+    whenToPerform: "Dhanishta Panchakam Shanti should be performed when any important ceremony coincides with the Dhanishta constellation. It's particularly recommended if there's a concern about potential disruptions due to the unfavorable positioning of stars. This ritual can also be performed if your astrologer identifies any malefic planetary influences in your horoscope that could hinder your progress or create obstacles during significant life events.",
+    benefits: "Removes obstacles caused by inauspicious planetary influences, ensures peace, prosperity, and stability during important life events, enhances the overall success and harmony of the planned occasion, and offers protection against negative energies and unforeseen challenges.",
+    image: "https://th.bing.com/th/id/OIG3.bGyWD8k6Yt4FWb2ztwn0?pid=ImgGn",
+	checkoutUrl: "file:///C:/Users/upadr/OneDrive/Desktop/rutvik/telugu/ourservices/checkoutdemo2.html"
+},
+        "Kuja Rahu Sandhi Shanti": {
+    description: "The Kuja Rahu Sandhi Shanti is a sacred ritual performed to neutralize the malefic effects of Mars (Kuja) and Rahu's conjunction or aspect in an individual's horoscope. When Mars and Rahu are placed together or strongly influence each other, they create an adverse impact known as 'Kuja Rahu Dosha.' This dosha can result in challenges such as health issues, marital conflicts, financial instability, and professional setbacks. This homam aims to harmonize the conflicting energies of Mars and Rahu, reducing their negative influence. During this ritual, powerful Vedic chants and mantras are recited to appease both planets, and offerings are made to invoke their blessings, transforming the malefic effects into beneficial energies.",
+    whenToPerform: "It is advisable to perform Kuja Rahu Sandhi Shanti if your birth chart indicates the presence of Kuja Rahu Dosha. This homam is also suitable during specific planetary transits when Mars and Rahu come into contact. Consulting an astrologer can help determine the best time to perform this ritual for maximum effectiveness.",
+    benefits: "Alleviates health issues and ensures physical well-being, helps resolve marital disputes and enhances harmony in relationships, improves career prospects and financial stability, and reduces the negative influence of Mars and Rahu on your life.",
+    image: "https://th.bing.com/th/id/OIG4.dMcdF4bH8HcGEPJox4fU?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn",
+	checkoutUrl: "file:///C:/Users/upadr/OneDrive/Desktop/rutvik/telugu/ourservices/checkoutdemo3.html"
+},
+        "Rahu Brihaspati Sandhi Shanti": {
+    description: "The Rahu Brihaspati Sandhi Shanti is performed to pacify the effects of Rahu (the North Node) and Jupiter (Brihaspati) when they are conjunct or in conflict in an individual's birth chart. The combination of Rahu and Jupiter can create a condition known as 'Guru Chandal Dosha,' which may lead to challenges such as financial instability, educational setbacks, relationship issues, or spiritual confusion. This homam focuses on balancing the energies of Rahu and Jupiter, transforming their influence from disruptive to beneficial. The ritual involves offering prayers, chanting mantras, and making offerings to appease both planets, seeking their blessings for prosperity, wisdom, and clarity.",
+    whenToPerform: "This homam should be conducted if your horoscope indicates the presence of Guru Chandal Dosha or if you're facing difficulties in your educational, financial, or spiritual pursuits. The ideal time to perform this ritual is during an auspicious planetary alignment, which an experienced astrologer can identify.",
+    benefits: "Overcomes financial challenges and enhances wealth accumulation, promotes educational success and intellectual growth, helps attain spiritual clarity and guidance, and brings harmony and stability to relationships.",
+    image: "https://th.bing.com/th/id/OIG2.OyEgSmnmW3NOheAuHfC2?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn",
+	checkoutUrl: "file:///C:/Users/upadr/OneDrive/Desktop/rutvik/telugu/ourservices/checkoutdemo4.html"
+},
+        "Shani Rahu Shrapit Dosha Nivarana Shanti": {
+    description: "The Shani Rahu Shrapit Dosha Nivarana Shanti is a highly beneficial ritual designed to nullify the adverse effects of the Shrapit Dosha, caused by the conjunction of Saturn (Shani) and Rahu in a horoscope. This dosha signifies the presence of past life karma that needs to be resolved in the present lifetime. Individuals with Shrapit Dosha may experience chronic delays, obstacles, health issues, or financial setbacks. The homam is performed to invoke the blessings of Lord Shiva, Saturn, and Rahu, seeking forgiveness and liberation from karmic debts. By performing this ritual, one can significantly reduce the burden of past karma and invite positive energies.",
+    whenToPerform: "It is ideal to perform this homam if your birth chart indicates the presence of Shrapit Dosha or if you consistently face obstacles in achieving success, despite hard work and dedication. An astrologer can recommend the most auspicious time to perform this ritual for the best results.",
+    benefits: "Removes obstacles caused by past life karmas, promotes professional growth, financial stability, and good health, helps attain peace of mind and emotional stability, and reduces the impact of Saturn and Rahu's malefic effects.",
+    image: "https://th.bing.com/th/id/OIG2.3mwaFSMUSCsCTGsSwrHh?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn",
+	checkoutUrl: "file:///C:/Users/upadr/OneDrive/Desktop/rutvik/telugu/ourservices/checkoutdemo2.html"
+},
+        "Shukra Aditya Sandhi Shanti": {
+    description: "The Shukra Aditya Sandhi Shanti is a unique ritual performed to harmonize the energies of Venus (Shukra) and the Sun (Aditya) when they form an unfavorable combination in an individual's horoscope. The conjunction or conflict between these two planets can lead to challenges such as financial instability, relationship issues, health problems, or lack of success in creative pursuits. This homam involves invoking the blessings of Venus and the Sun through Vedic chants, mantras, and offerings, ensuring that their combined influence becomes a source of strength and prosperity rather than conflict.",
+    whenToPerform: "This homam is recommended if you experience financial instability, relationship issues, or health challenges that may be linked to the Venus-Sun conjunction. An astrologer can guide you on the most auspicious time to perform this ritual to maximize its benefits.",
+    benefits: "Enhances financial growth, prosperity, and stability, promotes harmony and understanding in relationships, improves overall health and vitality, and supports success in artistic and creative endeavors.",
+    image:"https://th.bing.com/th/id/OIG2.Oe3jmPNiXwkjBpRM0FgI?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn",
+	checkoutUrl: "file:///C:/Users/upadr/OneDrive/Desktop/rutvik/telugu/ourservices/checkoutdemo2.html"
+}
+    };
+
+    document.querySelectorAll('.description-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const homamName = this.getAttribute('data-homam');
+            const homamDetails = homams[homamName];
+
+            document.getElementById('modalHomamTitle').textContent = homamName;
+			      document.getElementById('modalHomamImage').src = homamDetails.image;
+            document.getElementById('modalHomamDescription').textContent = homamDetails.description;
+            document.getElementById('modalWhenToPerform').textContent = homamDetails.whenToPerform;
+			document.getElementById('modalBenefits').textContent = homamDetails.benefits;
+            document.getElementById('checkoutButton').onclick = function() {
+                window.location.href = homamDetails.checkoutUrl;
+            };
+
+            document.getElementById('descriptionModal').style.display = 'block';
+        });
+    });
+
+    document.getElementById('closeModal').onclick = function() {
+        document.getElementById('descriptionModal').style.display = 'none';
+    };
+	document.getElementById('closeModal').addEventListener('click', () => {
+        document.getElementById('descriptionModal').style.display = 'none';
+    });
+</script>
+
+</body>
+</html>
