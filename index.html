@@ -150,7 +150,30 @@
         }
 
 	     
-
+        .feedback-form {
+            background-color: #c874fc;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ff0000;
+        }
+        .feedback-form input, .feedback-form textarea, .feedback-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .feedback-form button {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .feedback-form button:hover {
+            background-color: #cc0000;
+        }
 	   
 
 /* Optional: style for the content container */
@@ -497,6 +520,36 @@ function showContent(subpage) {
                     <li><strong>Cultural Significance:</strong> Engaging in such rituals helps preserve cultural heritage and traditions, connecting generations through shared practices.</li>
                 </ul>
                 <p>By partaking in Brahmachari Bhojanam, individuals not only enhance their spiritual journey but also contribute to the well-being of their community and family.</p>
+
+		    <h1>payment details for Rutvik</h1>
+    <div class="instructions">
+        <p>Please provide your payment details for the Rutvik</p>
+    </div>
+
+  <!--  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlMGtjl2EhVcKA4V4hWkYBg7FmGVXHUhFXX0SUzeEhSr6LBw/viewform?usp=sf_link" target="_blank">Open Feedback Form</a> -->
+
+    <div class="feedback-form">
+        <h2>fill the payment details below:</h2>
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSeeTVy-B_rz41y3MAkfqjTlsX24RMCVqsrU01lUjiPoJKBnnw/formResponse" method="POST" target="hidden_iframe">
+      name of the payer	
+			<label for="nameofthepayer">Name of the payer :</label>
+            <input id="nameofthepayer" name="entry.1357108683" rows="4" required></input>
+               
+			<label for="Paidamount">Paid amount:</label>
+            <input id="Paidamount" name="entry.383526464" rows="4" required></input>
+			
+			<label for="Transactionid">Transaction Id :</label>
+            <input id="Transactionid" name="entry.1592139097" rows="4" required></input>
+               
+			
+
+            
+
+            <button type="submit">Submit </button>
+        </form>
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+    </div>
+  
             `
         },
         'Subpage 2': {
