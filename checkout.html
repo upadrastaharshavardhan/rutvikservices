@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -183,7 +184,16 @@ button:hover {
 .feedback-form button:hover {
     background-color: #cc0000;
 }
+.total-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Full viewport height */
+}
 
+#total-cost {
+    font-weight: bold;
+}
     </style>
 </head>
 <body>
@@ -488,61 +498,32 @@ button:hover {
                     Flowers & Fruits (Add ₹1,200)
                 </li>
             </ul>
+			 <div class="total-container">
+             <h3>Total: ₹<span id="total-cost">${packageCost.toFixed(2)}</span></h3>
+</div>
         `;
     }
 
-    function updateCost(baseCost) {
-        const isChecked = document.getElementById('flowers-fruits-checkbox').checked;
-        const totalCost = isChecked ? baseCost + 1200 : baseCost;
-        document.getElementById('package-cost').innerText = totalCost.toFixed(2);
+   
+	
+	function updateCost(baseCost) {
+    const checkbox = document.getElementById('flowers-fruits-checkbox');
+    const totalCostElement = document.getElementById('total-cost');
+
+    // Set the additional cost for "Flowers & Fruits"
+    const additionalCost = 1200;
+
+    // Calculate the total cost
+    let totalCost = baseCost;
+
+    // Add ₹1,200 if the checkbox is checked
+    if (checkbox.checked) {
+        totalCost += additionalCost;
     }
 
-    //function submitForm() {
-      //  const transactionId = document.getElementById('transaction-id').value;
-      //  const paymentScreenshot = document.getElementById('payment-screenshot').files[0];
-
-       // if (!transactionId || !paymentScreenshot) {
-         //   alert("Please fill out all fields and upload the payment screenshot.");
-          //  return;
-       // }
-
-        // Process form submission as needed (e.g., sending to a server)
-        //alert("Payment details submitted successfully!");
-   // }
-	//function submitForm() {
- //   const transactionId = document.getElementById('transaction-id').value;
- //   const paymentScreenshot = document.getElementById('payment-screenshot').files[0];
-
- //   if (!transactionId || !paymentScreenshot) {
-      //  alert("Please fill out all fields and upload the payment screenshot.");
-       // return;
-  //  }
-
-    // Assuming you have uploaded the file to Google Drive and obtained the shareable link
-    //const fileShareableLink = "https://drive.google.com/drive/folders/1b9w6qN4tXvh3jBYjE-vtbBonB-eKr_OtNK0UtGXFXnJ9kU_mrK3VdDC18u0Mi2yTs2RmJ1vv?usp=drive_link/view";
-
-   // const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLScMq4PrdTxTAsXKtJzSAP59-8YdSa9HL8uAqDB9284J2T7jtA/formResponse";
-
-    //const formData = new FormData();
-   // formData.append("entry.1556519915", "Premium Package"); // Replace with actual package type selected
-   // formData.append("entry.1809865449", transactionId); // Replace with actual transaction ID field entry
-   // formData.append("entry.868290499", fileShareableLink); // Submit the shareable link to a text field
-
-   // fetch(googleFormURL, {
-     //   method: "POST",
-     //   body: formData,
-      //  mode: "no-cors"
-  //  }).then(() => {
-   //     alert("Your payment details have been submitted successfully!");
-    //    document.getElementById('packagetype-id').value = "";
-     //   document.getElementById('transaction-id').value = "";
-    //    document.getElementById('payment-screenshot').value = "";
-    //    document.getElementById('checkout').style.display = 'none';
-  //  }).catch(error => {
-       // alert("There was an error submitting your details. Please try again.");
-     //   console.error("Error:", error);
-   // });
-//}
+    // Update the total cost in the UI
+    totalCostElement.textContent = totalCost.toFixed(2);
+}
 
 </script>
 </body>
