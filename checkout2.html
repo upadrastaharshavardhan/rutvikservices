@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanti Pooja Packages</title>
+    <style>
+         body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #c670ff;
+            overflow-x: hidden;
+        }
+
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .subpage-image {
+            width: 30px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .header {
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 60px 20px;
+            min-height: 80vh;
+        }
+
+        .grid-item {
+            background-color: #eec7fc;
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item img {
+            width: 90%;
+            height: auto;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .grid-button {
+            margin-top: 12px;
+            padding: 10px 20px;
+            background-color: #3d0066;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .grid-button:hover {
+            background-color: #290044;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .form-container, .content-container {
+            background-color: #f8e8ff;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            margin: 20px auto;
+            z-index: 2;
+            position: relative;
+        }
+
+        button, .grid-button {
+            padding: 10px 20px;
+            background-color: #3d0066;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover, .grid-button:hover {
+            background-color: #290044;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+            }
+
+            .grid-item {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 50px;
+            }
+
+            .grid-item {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+
+            .header {
+                padding: 20px;
+            }
+        }
+
+        .feedback-form {
+            background-color: #c874fc;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ff0000;
+        }
+
+        .feedback-form input, .feedback-form textarea, .feedback-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .feedback-form button {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .feedback-form button:hover {
+            background-color: #cc0000;
+        }
+
+        #content-description {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8e8ff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<h2>Select a Shanti Pooja Package</h2>
+
+<div class="package-container">
+    <button onclick="showPackages('Dhanishta Panchakam Shanti')">Dhanishta Panchakam Shanti</button>
+    <button onclick="showPackages('Kuja Rahu Sandhi Shanti')">Kuja Rahu Sandhi Shanti</button>
+    <button onclick="showPackages('Rahu Brihaspati Sandhi Shanti')">Rahu Brihaspati Sandhi Shanti</button>
+    <button onclick="showPackages('Shani Rahu Shrapit Dosha Nivarana Shanti')">Shani Rahu Shrapit Dosha Nivarana Shanti</button>
+    <button onclick="showPackages('Shukra Aditya Sandhi Shanti')">Shukra Aditya Sandhi Shanti</button>
+</div>
+<div id="checkout" class="form-container">
+    <div id="selected-package-details"></div>
+<div class="overlay" id="overlay" onclick="closeCheckout()"></div>
+
+<div class="overlay" id="overlay" onclick="Checkout()"></div>
+
+<div id="checkout">
+    <h2>Checkout</h2> 
+	<img src="scanqr.jpg"></img>
+    <button onclick="closeCheckout()">Back</button>
+    <div id="selected-package-details"></div>
+    <p>Choose your payment option:</p>
+    <ul>
+        <li>Advance Payment: Pay 50% of the amount to confirm your booking.</li>
+        <li>Full Payment: Pay the complete amount upfront.</li>
+    </ul>
+    
+   <!-- Google Form Embed for Payment Confirmation -->
+<div class="feedback-form">
+        <h2>fill the payment details below:</h2>
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSeeTVy-B_rz41y3MAkfqjTlsX24RMCVqsrU01lUjiPoJKBnnw/formResponse" method="POST" target="hidden_iframe">
+      	
+			<label for="nameofthepayer">Name of the payer :</label>
+            <input id="nameofthepayer" name="entry.1357108683" rows="4" required></input>
+               
+			<label for="Paidamount">Paid amount:</label>
+            <input id="Paidamount" name="entry.383526464" rows="4" required></input>
+			
+			<label for="Transactionid">Transaction Id :</label>
+            <input id="Transactionid" name="entry.1592139097" rows="4" required></input>
+           
+            <button type="submit">Submit </button>
+        </form>
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+    </div>
+
+
+<script>
+    const packages = {
+        "Dhanishta Panchakam Shanti": [
+            { type: "Basic", description: "Basic Pooja package", cost: 2500 },
+            { type: "Standard", description: "Includes additional rituals", cost: 5000 },
+            { type: "Premium", description: "Full package with all rituals and homams", cost: 7500 }
+        ],
+        "Kuja Rahu Sandhi Shanti": [
+            { type: "Basic", description: "Basic Pooja package", cost: 2000 },
+            { type: "Standard", description: "Includes additional rituals", cost: 4500 },
+            { type: "Premium", description: "Full package with all rituals and homams", cost: 7000 }
+        ],
+        "Rahu Brihaspati Sandhi Shanti": [
+            { type: "Basic", description: "Basic Pooja package", cost: 3000 },
+            { type: "Standard", description: "Includes additional rituals", cost: 5500 },
+            { type: "Premium", description: "Full package with all rituals and homams", cost: 8000 }
+        ],
+        "Shani Rahu Shrapit Dosha Nivarana Shanti": [
+            { type: "Basic", description: "Basic Pooja package", cost: 3500 },
+            { type: "Standard", description: "Includes additional rituals", cost: 6000 },
+            { type: "Premium", description: "Full package with all rituals and homams", cost: 8500 }
+        ],
+        "Shukra Aditya Sandhi Shanti": [
+            { type: "Basic", description: "Basic Pooja package", cost: 2200 },
+            { type: "Standard", description: "Includes additional rituals", cost: 4700 },
+            { type: "Premium", description: "Full package with all rituals and homams", cost: 7200 }
+        ]
+    };
+
+    function showPackages(homamName) {
+        const selectedPackageDetails = document.getElementById('selected-package-details');
+        selectedPackageDetails.innerHTML = `
+            <h3>${homamName} Packages</h3>
+            ${packages[homamName].map(pkg => `
+                <div>
+                    <h4>${pkg.type}</h4>
+                    <p>Description: ${pkg.description}</p>
+                    <p>Cost: ₹${pkg.cost.toFixed(2)}</p>
+                    <button onclick="selectPackage('${homamName}', '${pkg.type}', ${pkg.cost})">Select ${pkg.type}</button>
+                </div>
+            `).join('')}
+        `;
+        document.getElementById('checkout').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+        window.scrollTo(0, 0); // Scroll to the top of the page
+    }
+
+    function closeCheckout() {
+        document.getElementById('checkout').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('selected-package-details').innerHTML = ''; // Clear details on close
+    }
+
+    function selectPackage(homamName, packageType, packageCost) {
+        const selectedPackageDetails = document.getElementById('selected-package-details');
+        selectedPackageDetails.innerHTML = `
+            <h3>Selected Package: ${packageType}</h3>
+            <p>Cost: ₹<span id="package-cost">${packageCost.toFixed(2)}</span></p>
+            <p>Inclusions:</p>
+            <ul>
+                <li>Dakshina</li>
+                <li>All Pooja Materials</li>
+                <li>
+                    <input type="checkbox" id="flowers-fruits-checkbox" onclick="updateCost(${packageCost})">
+                    Flowers & Fruits (Add ₹1,200)
+                </li>
+            </ul>
+            <div class="total-container">
+                <h3>Total: ₹<span id="total-cost">${packageCost.toFixed(2)}</span></h3>
+            </div>
+		
+
+			
+        `;
+    }
+
+    function updateCost(baseCost) {
+        const checkbox = document.getElementById('flowers-fruits-checkbox');
+        const totalCostElement = document.getElementById('total-cost');
+
+        // Set the additional cost for "Flowers & Fruits"
+        const additionalCost = 1200;
+
+        // Calculate the total cost
+        let totalCost = baseCost;
+
+        // Add ₹1,200 if the checkbox is checked
+        if (checkbox.checked) {
+            totalCost += additionalCost;
+        }
+
+        // Update the total cost in the UI
+        totalCostElement.textContent = totalCost.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
