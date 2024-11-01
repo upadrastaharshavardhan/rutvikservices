@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pooja Packages</title>
+<style>
+/* Body and Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #c670ff;
+    overflow-x: auto; /* Allow horizontal scrolling if necessary */
+}
+
+/* Background Video */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Header */
+.header {
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    z-index: 1;
+    position: relative;
+}
+
+/* Grid Container */
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 10px;
+    min-height: 60vh; /* Minimum height for the grid */
+}
+
+/* Grid Item */
+.grid-item {
+    background-color: #eec7fc;
+    border-radius: 60%;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: auto;
+    justify-content: auto;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Grid Button */
+.grid-button {
+    margin-top: -70px;
+    padding: 10px 20px;
+    background-color: #3d0066;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 1px;
+    transition: background-color 0.3s;
+}
+
+.grid-button:hover {
+    background-color: #290044;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Overlay Styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Form Container */
+.form-container {
+    background-color: #f8e8ff;
+    padding: 20px; /* Reduced padding for better fitting */
+    border-radius: 15px; /* Rounded corners */
+    max-width: 500px; /* Maximum width */
+    width: 90%; /* Responsive width */
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    max-height: 90vh; /* Limit height of the form container */
+    overflow-y: auto; /* Enable scrolling if necessary */
+}
+
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    background-color: #3d0066;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #290044;
+}
+
+/* Selected Package Details */
+#selected-package-details {
+    margin-top: 20px;
+}
+
+/* Feedback Form */
+.feedback-form {
+    background-color: #f8e8ff; /* Light purple background */
+    padding: 20px; /* Padding around the form */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    max-width: 100%; /* Maximum width */
+    margin: 20px 0; /* Space around the form */
+    display: flex; /* Flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+}
+
+.feedback-form h2 {
+    text-align: center; /* Center title */
+    color: #3d0066; /* Dark purple color */
+    margin-bottom: 20px; /* Space below title */
+}
+
+.feedback-form label {
+    margin-bottom: 8px; /* Space below labels */
+    color: #3d0066; /* Dark purple color */
+    font-weight: bold; /* Bold labels */
+}
+
+.feedback-form input {
+    padding: 12px; /* Inner padding */
+    border-radius: 8px; /* Rounded corners */
+    border: 2px solid #3d0066; /* Dark purple border */
+    margin-bottom: 15px; /* Space below inputs */
+    font-size: 16px; /* Font size */
+    transition: border-color 0.3s; /* Smooth transition */
+}
+
+.feedback-form input:focus {
+    border-color: #c670ff; /* Change border color on focus */
+    outline: none; /* Remove outline */
+}
+
+.feedback-form button {
+    padding: 12px; /* Inner padding */
+    background-color: #3d0066; /* Dark purple background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 18px; /* Font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+.feedback-form button:hover {
+    background-color: #290044; /* Darker purple on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* QR Code Styling */
+.qr-code {
+    max-width: 100%; /* Responsive scaling */
+    margin-top: 20px; /* Space above */
+    display: block; /* Ensure it's displayed as a block */
+    text-align: center; /* Center align if needed */
+}
+
+</style>
+
+</head>
+<body>
+
+<h2>Select a Pooja Package</h2>
+
+<div class="grid-container">
+    <div class="grid-item" onclick="showPackages('Ayudha Pooja')">
+        <img src="https://tse4.mm.bing.net/th?id=OIG3.xcusVuG4ZzAe0GX1DgHE&pid=ImgGn" alt="Ayudha Pooja Circle" style="border-radius: 70%; width: 100%; height: 100%;">
+        
+        <button class="grid-button">Select Package</button><br><h3>Ayudha Pooja</h3><br><br><br><br>
+    </div>
+    <div class="grid-item" onclick="showPackages('Bhoomi Pooja')">
+        <img src="https://tse1.mm.bing.net/th?id=OIG1.uXaSTfSEgQ1u_6lpySDl&pid=ImgGn" alt="Bhoomi Pooja Circle" style="border-radius: 70%; width: 100%; height: 100%;">
+      
+        <button class="grid-button">Select Package</button> <br> <h3>Bhoomi Pooja</h3><br><br><br><br>
+    </div>
+    <div class="grid-item" onclick="showPackages('Chandi Saptashati Parayanam')">
+        <img src="https://files.oaiusercontent.com/file-QUFxMzou1PZAAgL3r1iDYZ4H?se=2024-10-30T05%3A19%3A19Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D34f6463e-bcf4-40ef-9cfb-0f571721d46c.webp&sig=ggocQ2mAtxzx0gAPwQqjtM96hABPbwvHzak%2BbrojEFo%3D" alt="Chandi Saptashati Parayanam Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+        
+        <button class="grid-button">Select Package</button> <br> <h3>Chandi Saptashati Parayanam</h3><br><br><br><br>
+    </div>
+    <div class="grid-item" onclick="showPackages('Dhanalakshmi Pooja')">
+        <img src="https://tse4.mm.bing.net/th?id=OIG3.KANo.R6e6SQ178ZDd.JI&pid=ImgGn" alt="Dhanalakshmi Pooja Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+       
+        <button class="grid-button">Select Package</button><br><h3>Dhanalakshmi Pooja</h3><br><br><br><br>
+    </div>
+    <div class="grid-item" onclick="showPackages('Durga Pooja')">
+        <img src="https://tse2.mm.bing.net/th?id=OIG1.NYLmrjBFgzKqaJMviWJl&pid=ImgGn" alt="Durga Pooja Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+       
+        <button class="grid-button">Select Package</button><br><h3>Durga Pooja</h3><br><br><br><br>
+    </div>
+    <div class="grid-item" onclick="showPackages('Ganapati Pooja')">
+        <img src="https://tse1.mm.bing.net/th?id=OIG4.rKWueDHPNfJ4yEOpS_Jh&pid=ImgGn" alt="Ganapati Pooja Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+       
+        <button class="grid-button">Select Package</button> <br><h3>Ganapati Pooja</h3><br><br><br><br>
+    </div>
+    <div class="grid-item" onclick="showPackages('Kedareswara Nomu')">
+        <img src="https://files.oaiusercontent.com/file-iRc14eAxzMymFRHK4Db3lG4g?se=2024-11-01T07%3A20%3A22Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Db5c991cc-a092-4cd2-94fa-6563a5539e5e.webp&sig=lcYok3skwAk5NF0oD5LZXTSOHU0b1/QcrDAbdxLAFOE%3D" alt="Kedareswara Nomu Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+       
+        <button class="grid-button">Select Package</button><br>  <h3>Kedareswara Nomu</h3><br><br><br><br>
+    </div>
+    <div class="grid-item" onclick="showPackages('Lalitha Sahasranama Pooja')">
+        <img src="https://files.oaiusercontent.com/file-KrsaXk9xoOWXJuNYfWbnHgbi?se=2024-11-01T07%3A22%3A02Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D2571fb7d-cfda-42cb-822a-29679dcb36b1.webp&sig=/qvdwCBx8TxzztTUhIG1ZNrI5fXimr2DcEfHxJfRaH0%3D" alt="Lalitha Sahasranama Pooja Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+       
+        <button class="grid-button">Select Package</button><br>  <h3>Lalitha Sahasranama Pooja</h3><br><br><br><br>
+    </div>
+    <div class="grid-item" onclick="showPackages('Maha Lingarchana')">
+        <img src="data:image/jpeg;base64,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" alt="Maha Lingarchana Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+        
+        <button class="grid-button">Select Package</button><br><h3>Maha Lingarchana</h3><br><br><br><br>
+    </div>
+    <div class="grid-item" onclick="showPackages('New Business Pooja')">
+        <img src="https://tse3.mm.bing.net/th?id=OIG1.binIlVfkHMccGcJqZZ4O&pid=ImgGn" alt="New Business Pooja Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+        
+        <button class="grid-button">Select Package</button><br><h3>New Business Pooja</h3><br><br><br><br>
+    </div>
+    <div class="grid-item" onclick="showPackages('New Vehicle Pooja')">
+        <img src="https://tse2.mm.bing.net/th?id=OIG3.kzYXcftz7saFATFMHEf0&pid=ImgGn" alt="New Vehicle Pooja Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+        
+        <button class="grid-button">Select Package</button><br><h3>New Vehicle Pooja</h3><br><br><br><br>
+    </div>
+    <div class="grid-item" onclick="showPackages('Punyahavachanam')">
+        <img src="https://tse3.mm.bing.net/th?id=OIG1.0NkexA04xPLW.fOyP_Qf&pid=ImgGn" alt="Punyahavachanam Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+        
+        <button class="grid-button">Select Package</button><br><h3>Punyahavachanam</h3><br><br><br><br>
+    </div>
+    <div class="grid-item" onclick="showPackages('Rudrabhishekam Pooja')">
+        <img src="path/to/your/circle-image-rudrabhishekam.png" alt="Rudrabhishekam Pooja Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+        <h3>Rudrabhishekam Pooja</h3>
+        <button class="grid-button">Select Package</button>
+    </div>
+    <div class="grid-item" onclick="showPackages('Saraswathi Pooja')">
+        <img src="path/to/your/circle-image-saraswathi.png" alt="Saraswathi Pooja Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+        <h3>Saraswathi Pooja</h3>
+        <button class="grid-button">Select Package</button>
+    </div>
+    <div class="grid-item" onclick="showPackages('Satyanarayana Pooja')">
+        <img src="path/to/your/circle-image-satyanarayana.png" alt="Satyanarayana Pooja Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+        <h3>Satyanarayana Pooja</h3>
+        <button class="grid-button">Select Package</button>
+    </div>
+    <div class="grid-item" onclick="showPackages('Udaka Shanti')">
+        <img src="path/to/your/circle-image-udaka.png" alt="Udaka Shanti Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+        <h3>Udaka Shanti</h3>
+        <button class="grid-button">Select Package</button>
+    </div>
+    <div class="grid-item" onclick="showPackages('Varalakshmi Pooja')">
+        <img src="path/to/your/circle-image-varalakshmi.png" alt="Varalakshmi Pooja Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+        <h3>Varalakshmi Pooja</h3>
+        <button class="grid-button">Select Package</button>
+    </div>
+    <div class="grid-item" onclick="showPackages('Vastu Shanti Pooja')">
+        <img src="path/to/your/circle-image-vastu.png" alt="Vastu Shanti Pooja Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+        <h3>Vastu Shanti Pooja</h3>
+        <button class="grid-button">Select Package</button>
+    </div>
+    <div class="grid-item" onclick="showPackages('Vishnu Sahasranama Pooja')">
+        <img src="path/to/your/circle-image-vishnu.png" alt="Vishnu Sahasranama Pooja Circle" style="border-radius: 50%; width: 100%; height: 100%;">
+        <h3>Vishnu Sahasranama Pooja</h3>
+        <button class="grid-button">Select Package</button>
+    </div>
+</div>
+
+
+<!-- Modified Checkout Section -->
+<div id="checkout" class="overlay" id="overlay">
+    <div class="form-container">
+        <h2>Checkout for <span id="selected-package"></span></h2>
+        <img src="scanqr.jpg" alt="Scan QR Code" style="width: 100%; border-radius: 15px;">
+        <button onclick="closeCheckout()">Back</button>
+        <div id="selected-package-details"></div>
+        <p>Choose your payment option:</p>
+        <ul>
+            <li>Advance Payment: Pay 50% of the amount to confirm your booking.</li>
+            <li>Full Payment: Pay the complete amount upfront.</li>
+        </ul>
+
+        <!-- Google Form Embed for Payment Confirmation -->
+       <div class="feedback-form">
+    <h2>Fill the payment details below:</h2>
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSeeTVy-B_rz41y3MAkfqjTlsX24RMCVqsrU01lUjiPoJKBnnw/formResponse" method="POST" target="hidden_iframe">
+        <label for="nameofthepayer">Name of the payer:</label>
+        <input id="nameofthepayer" name="entry.1357108683" required>
+        <br>
+        <label for="Paidamount">Paid amount:</label>
+        <input id="Paidamount" name="entry.383526464" required>
+        <br>
+        <label for="Transactionid">Transaction Id:</label>
+        <input id="Transactionid" name="entry.1592139097" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+</div>
+
+    </div>
+</div>
+
+<script>
+    const packagePrices = {
+        "Ayudha Pooja": 2000,
+        "Bhoomi Pooja": 1500,
+        "Chandi Saptashati Parayanam": 3000,
+        "Dhanalakshmi Pooja": 2500,
+        "Durga Pooja": 2800,
+        "Ganapati Pooja": 2200,
+        "Kedareswara Nomu": 1800,
+        "Lalitha Sahasranama Pooja": 3200,
+        "Maha Lingarchana": 3500,
+        "New Business Pooja": 4000,
+        "New Vehicle Pooja": 2700,
+        "Punyahavachanam": 1300,
+        "Rudrabhishekam Pooja": 3600,
+        "Saraswathi Pooja": 2900,
+        "Satyanarayana Pooja": 2400,
+        "Udaka Shanti": 1100,
+        "Varalakshmi Pooja": 3300,
+        "Vastu Shanti Pooja": 1500,
+    };
+
+    function showPackages(packageName) {
+        document.getElementById('selected-package').innerText = packageName;
+        document.getElementById('selected-package-details').innerText = `You have selected the ${packageName}. The total amount is ${packagePrices[packageName]} INR.`;
+        document.getElementById('checkout').style.display = 'flex';
+    }
+
+    function closeCheckout() {
+        document.getElementById('checkout').style.display = 'none';
+    }
+	
+
+    function showOverlay() {
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'flex'; // Change to flex to utilize flex properties
+    }
+
+    function closeOverlay() {
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'none';
+    }
+
+
+</script>
+
+</body>
+</html>
