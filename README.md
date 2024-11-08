@@ -1,2 +1,2 @@
 # rutvikservices
-CompressJPEG.online_512x512_image.png
+src="CompressJPEG.online_512x512_image.png"
